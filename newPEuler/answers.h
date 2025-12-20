@@ -1,0 +1,15 @@
+#pragma once
+#include <iostream>
+#include "helpers.h"
+using std::cout; using std::cin; using std::endl;
+namespace answers {
+	void Q1();//sum of multipals of a and b
+	void Q2();//sum of all even fib nums until x
+	void Q3();//largest prime factor of x
+	void Q4();//largest Palindrome that is a product of 2 a digit nums 
+	void Q5();//smallest evenly divisable number by 1...x
+	void Q6();//difference between the sum of all the numbers until x squred and all the numbers squared until x 
+	void Q7();//the nth prime number
+	void Q8();
+	void Q9();
+}
