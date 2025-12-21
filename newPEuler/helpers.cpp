@@ -74,7 +74,5 @@ namespace helpers {
 		{
 			return "th";
 		}
-
 	}
-
 }

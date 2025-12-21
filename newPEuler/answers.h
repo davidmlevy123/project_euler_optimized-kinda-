@@ -11,5 +11,7 @@ namespace answers {
 	void Q6();//difference between the sum of all the numbers until x squred and all the numbers squared until x 
 	void Q7();//the nth prime number
 	void Q8();//finds the largest product of x numbers in a matrix 
-	void Q9();
+	void Q9();//finds all the pythagorean triplets that a+b+c=x.
+	void Q10();//sum of all primes until x
+	void Q11();//finds the greatest pruduct of a numbers in a grid that is nxm.
 }

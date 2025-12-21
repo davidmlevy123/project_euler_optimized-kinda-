@@ -42,15 +42,15 @@ namespace Utils {
 
             auto end = std::chrono::high_resolution_clock::now();
 
-            std::chrono::duration<double, std::milli> total_ms = end - start;
-            std::chrono::duration<double, std::micro> total_micro = end - start;
-            std::chrono::duration<double> total_sec = end - start;
+            std::chrono::duration<long double, std::milli> total_ms = end - start;
+            std::chrono::duration<long double, std::micro> total_micro = end - start;
+            std::chrono::duration<long double> total_sec = end - start;
 
-            double average_ms = total_ms.count() / iterations;
-            std::cout << "[Time]   " << name << " Average: " << total_micro.count() / iterations << " microseconds (" << iterations << " runs)\n";
+            double average_ms = (long double)(total_ms.count() / iterations);
+            std::cout << "[Time]   " << name << " Average: " << (long double)(total_micro.count() / iterations) << " microseconds (" << iterations << " runs)\n";
             std::cout << "[Time]   " << name << " Average: " << average_ms << " milliseconds (" << iterations << " runs)\n";
-            std::cout << "[Time]   " << name << " Average: " << total_sec.count() / iterations << " seconds (" << iterations << " runs)\n";
-            std::cout << "[Total Time]     " << total_sec.count() << " seconds (" << iterations << " runs)\n";
+            std::cout << "[Time]   " << name << " Average: " << (long double)(total_sec.count() / iterations) << " seconds (" << iterations << " runs)\n";
+            std::cout << "[Total Time]     " << (long double)(total_sec.count()) << " seconds (" << iterations << " runs)\n";
             std::cout << "---------------------------------------------------------------------\n";
         }
     };

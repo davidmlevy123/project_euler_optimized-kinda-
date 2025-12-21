@@ -30,15 +30,15 @@ namespace answers {
 		NSame = (maxNum - 1) / ((num1*num2)/numsGCD);//we find the amount of overlaps there are
 		sumSame = (NSame * (((num1 * num2) / numsGCD) + NSame * (((num1 * num2) / numsGCD)))) / 2;//we calculate the sum of the overlap using invoice series sum
 		auto stop = std::chrono::high_resolution_clock::now();
-		cout << "the sum of all the sums up until " << maxNum << " is: " << sumBig + sumSmall - sumSame;
-		cout << "---------------------------------------------------------------------";
+		cout << "the sum of all the sums up until " << maxNum << " is: " << sumBig + sumSmall - sumSame << endl;
+		cout << "---------------------------------------------------------------------\n";
 		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
 		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
-		cout << "Time taken: " << duration_micro.count() << " microseconds" << std::endl;
-		cout << "Time taken: " << duration_mil.count() << " milliseconds" << std::endl;
-		cout << "Time taken: " << duration_sec.count() << " seconds" << std::endl;
-		std::cout << "---------------------------------------------------------------------\n";
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
+		cout << "---------------------------------------------------------------------\n";
 	}
 	void Q2() {
 		int maxNum, fibNum = 2, pastFib = 1, fibSum = 2;//we start at 1 and 2 to make the skkipping by 3 easier(thats why the sum is 2)
@@ -57,15 +57,15 @@ namespace answers {
 			}
 		}
 		auto stop = std::chrono::high_resolution_clock::now();
-		cout << "the sum of the fib nums until: " << maxNum << " is: " << fibSum;
-		cout << "---------------------------------------------------------------------";
+		cout << "the sum of the fib nums until: " << maxNum << " is: " << fibSum << endl;
+		cout << "---------------------------------------------------------------------\n";
 		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
 		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
-		cout << "Time taken: " << duration_micro.count() << " microseconds" << std::endl;
-		cout << "Time taken: " << duration_mil.count() << " milliseconds" << std::endl;
-		cout << "Time taken: " << duration_sec.count() << " seconds" << std::endl;
-		std::cout << "---------------------------------------------------------------------\n";
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
+		cout << "---------------------------------------------------------------------\n";
 	}
 	void Q3() {
 		long long int num;
@@ -107,13 +107,14 @@ namespace answers {
 				cout << " " << pair.first;
 			}
 		}
-		cout << "---------------------------------------------------------------------";
+		cout << endl;
+		cout << "---------------------------------------------------------------------\n";
 		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
 		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
-		cout << "Time taken: " << duration_micro.count() << " microseconds" << std::endl;
-		cout << "Time taken: " << duration_mil.count() << " milliseconds" << std::endl;
-		cout << "Time taken: " << duration_sec.count() << " seconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "---------------------------------------------------------------------\n";
 	}
 	void Q4() {
@@ -132,14 +133,14 @@ namespace answers {
 		}
 		auto stop = std::chrono::high_resolution_clock::now();
 		cout << "the largest palindrom made by the product of 2 numbers with "
-			 << num_digs << " digts is: " << max;
-		cout << "---------------------------------------------------------------------";
+			<< num_digs << " digts is: " << max << endl;
+		cout << "---------------------------------------------------------------------\n";
 		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
 		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
-		cout << "Time taken: " << duration_micro.count() << " microseconds" << std::endl;
-		cout << "Time taken: " << duration_mil.count() << " milliseconds" << std::endl;
-		cout << "Time taken: " << duration_sec.count() << " seconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "---------------------------------------------------------------------\n";
 	}
 	void Q5() {
@@ -155,14 +156,14 @@ namespace answers {
 			cur_lcd = cur_lcd * i / next_gcd;
 		}
 		auto stop = std::chrono::high_resolution_clock::now();
-		cout << "the lowest number that devides by all the numbers until " << max << " is: " << cur_lcd;
-		cout << "---------------------------------------------------------------------";
+		cout << "the lowest number that devides by all the numbers until " << max << " is: " << cur_lcd << endl;
+		cout << "---------------------------------------------------------------------\n";
 		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
 		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
-		cout << "Time taken: " << duration_micro.count() << " microseconds" << std::endl;
-		cout << "Time taken: " << duration_mil.count() << " milliseconds" << std::endl;
-		cout << "Time taken: " << duration_sec.count() << " seconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "---------------------------------------------------------------------\n";
 	}
 	void Q6() {
@@ -178,14 +179,14 @@ namespace answers {
 		auto stop = std::chrono::high_resolution_clock::now();
 		cout << "the of the sum of squares until " << max_num_squares << " is: " << sum_of_squares << endl;
 		cout << "the sum of all the numbers until " << max_num_squared << " squared is: " << sum_squared << endl;
-		cout << "the difference is: " << sum_squared - sum_of_squares;
-		cout << "---------------------------------------------------------------------";
+		cout << "the difference is: " << sum_squared - sum_of_squares << endl;
+		cout << "---------------------------------------------------------------------\n";
 		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
 		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
-		cout << "Time taken: " << duration_micro.count() << " microseconds" << std::endl;
-		cout << "Time taken: " << duration_mil.count() << " milliseconds" << std::endl;
-		cout << "Time taken: " << duration_sec.count() << " seconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "---------------------------------------------------------------------\n";
 	}
 	void Q7() {
@@ -195,14 +196,14 @@ namespace answers {
 		auto start = std::chrono::high_resolution_clock::now();
 		prime_num = helpers::Nth_prime(n);
 		auto stop = std::chrono::high_resolution_clock::now();
-		cout << "the " << n << "'th prime number is: " << prime_num;
-		cout << "---------------------------------------------------------------------";
+		cout << "the " << n << "'th prime number is: " << prime_num << endl;
+		cout << "---------------------------------------------------------------------\n";
 		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
 		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
-		cout << "Time taken: " << duration_micro.count() << " microseconds" << std::endl;
-		cout << "Time taken: " << duration_mil.count() << " milliseconds" << std::endl;
-		cout << "Time taken: " << duration_sec.count() << " seconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "---------------------------------------------------------------------\n";
 	}
 	void Q8() {
@@ -228,14 +229,14 @@ namespace answers {
 			}
 		}
 		auto stop = std::chrono::high_resolution_clock::now();
-		cout << "the max product is: " << maxSize;
-		cout << "---------------------------------------------------------------------";
+		cout << "the max product is: " << maxSize << endl;
+		cout << "---------------------------------------------------------------------\n";
 		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
 		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
-		cout << "Time taken: " << duration_micro.count() << " microseconds" << std::endl;
-		cout << "Time taken: " << duration_mil.count() << " milliseconds" << std::endl;
-		cout << "Time taken: " << duration_sec.count() << " seconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "---------------------------------------------------------------------\n";
 	}
 	void Q9() {
@@ -255,15 +256,123 @@ namespace answers {
 		}
 		auto stop = std::chrono::high_resolution_clock::now();
 		if (triplet_num == 0) {
-			cout << "that number doesnt have a pythagorean triplet";
+			cout << "that number doesnt have a pythagorean triplet" << endl;
 		}
-		cout << "---------------------------------------------------------------------";
+		cout << "---------------------------------------------------------------------\n";
 		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
 		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
-		cout << "Time taken: " << duration_micro.count() << " microseconds" << std::endl;
-		cout << "Time taken: " << duration_mil.count() << " milliseconds" << std::endl;
-		cout << "Time taken: " << duration_sec.count() << " seconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "---------------------------------------------------------------------\n";
+	}
+	void Q10() {
+		long long int sum_prime_max, sum = 0;
+		cout << "enter the max number that you want the sum of all primes until: ";
+		cin >> sum_prime_max;
+		auto start = std::chrono::high_resolution_clock::now();
+		std::vector<unsigned long long> primes = helpers::sieve_P(sum_prime_max);
+		for (int i = 0; i < primes.size(); i++) {
+			sum += primes[i];
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+		cout << "the sum of all the primes until " << sum_prime_max << " is: " << sum << endl;
+		cout << "---------------------------------------------------------------------\n";
+		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
+		cout << "---------------------------------------------------------------------\n";
+	}
+	void Q11() {
+		int n, m, num_of_adjacent;
+		long long int sum_cur = 1, sum_max = 0;
+		int** grid;
+		cout << "enter grid dimensions: ";
+		cin >> n >> m;
+		cout << "enter the amount of numbers that you want the product of: ";
+		cin >> num_of_adjacent;
+		grid = new int* [n - 1];
+		for (int i = 0; i < n; ++i) {
+			grid[i] = new int[m - 1];
+		}
+		cout << "enter the grid: \n";
+		for (int i = 0; i < n; ++i) {
+			for (int j = 0; j < m; ++j) {
+				cin >> grid[i][j];
+			}
+		}
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int i = 0; i < n; ++i) {
+			for (int j = 0; j <= n - num_of_adjacent; ++j) {
+				sum_cur = 1;
+				for (int k = 0; k < num_of_adjacent; ++k) {
+					sum_cur *= grid[i][j + k];
+				}
+				if (sum_cur > sum_max) {
+					sum_max = sum_cur;
+				}
+			}
+		}
+		for (int i = 0; i < n - num_of_adjacent; ++i) {
+			for (int j = 0; j <= n; ++j) {
+				sum_cur = 1;
+				for (int k = 0; k < num_of_adjacent; ++k) {
+					sum_cur *= grid[i + k][j];
+				}
+				if (sum_cur > sum_max) {
+					sum_max = sum_cur;
+				}
+			}
+		}
+		for (int i = 0; i <= n - num_of_adjacent; ++i) {
+			for (int j = 0; j < n; ++j) {
+				sum_cur = 1;
+				for (int k = 0; k < num_of_adjacent; ++k) {
+					sum_cur *= grid[i + k][j];
+				}
+				if (sum_cur > sum_max) {
+					sum_max = sum_cur;
+				}
+			}
+		}
+		for (int i = 0; i <= n - num_of_adjacent; ++i) {
+			for (int j = 0; j <= n - num_of_adjacent; ++j) {
+				sum_cur = 1;
+				for (int k = 0; k < num_of_adjacent; ++k) {
+					sum_cur *= grid[i + k][j + k];
+				}
+				if (sum_cur > sum_max) {
+					sum_max = sum_cur;
+				}
+			}
+		}
+		for (int i = 0; i <= n - num_of_adjacent; ++i) {
+			for (int j = num_of_adjacent - 1; j < n; ++j) {
+				sum_cur = 1;
+				for (int k = 0; k < num_of_adjacent; ++k) {
+					sum_cur *= grid[i + k][j - k];
+				}
+				if (sum_cur > sum_max) {
+					sum_max = sum_cur;
+				}
+			}
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+		cout << "the max product of " << num_of_adjacent << " numbers is: " << sum_max << endl;
+		cout << "---------------------------------------------------------------------\n";
+		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
+		cout << "---------------------------------------------------------------------\n";
+	}
+	void Q12() {
+
 	}
 }
