@@ -10,6 +10,6 @@ namespace answers {
 	void Q5();//smallest evenly divisable number by 1...x
 	void Q6();//difference between the sum of all the numbers until x squred and all the numbers squared until x 
 	void Q7();//the nth prime number
-	void Q8();
+	void Q8();//finds the largest product of x numbers in a matrix 
 	void Q9();
 }

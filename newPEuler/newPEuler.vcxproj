@@ -133,6 +133,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="answers.h" />
+    <ClInclude Include="answers_test.h" />
+    <ClInclude Include="Benchmark.h" />
     <ClInclude Include="helpers.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

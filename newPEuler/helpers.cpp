@@ -60,5 +60,21 @@ namespace helpers {
 		auto primes = sieve_P(n * log(n) + n * log(log(n)));
 		return primes[n - 1];
 	}
+	std::string sufix(int n) {
+		if (n == 1) {
+			return "st";
+		}
+		else if (n == 2) {
+			return "nd";
+		}
+		else if (n == 3) {
+			return "rd";
+		}
+		else
+		{
+			return "th";
+		}
+
+	}
 
 }
