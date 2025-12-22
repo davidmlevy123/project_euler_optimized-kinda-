@@ -373,6 +373,47 @@ namespace answers {
 		cout << "---------------------------------------------------------------------\n";
 	}
 	void Q12() {
-
+		int num_of_divisors = 1, curPrime = 0, max_num_of_divisors;
+		long long int cur_num = 1, prev_num = 1, max_prime = 100000;
+		cout << "enter the amount of divisors that you want a triangular number to have: ";
+		cin >> max_num_of_divisors;
+		auto start = std::chrono::high_resolution_clock::now();
+		auto primes = helpers::sieve_P(max_prime);
+		while (true)
+		{
+			num_of_divisors = 1;
+			cur_num += ++prev_num;
+			long long temp = cur_num;
+			for (int prime : primes) {
+				if ((long long)(prime * prime) > temp) {//if the curent amount left is prime
+					break;
+				}
+				if (temp % prime == 0) {
+					int p_power = 0;
+					while (temp % prime == 0) {
+						temp /= prime;
+						p_power++;
+					}
+					num_of_divisors *= (p_power + 1);
+				}
+			}
+			if (temp > 1) {
+				num_of_divisors *= 2;
+			}
+			if (num_of_divisors > max_num_of_divisors)
+			{
+				break;
+			}
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+		cout << "the first triangular number with " << max_num_of_divisors << " divisors is: " << cur_num << endl;
+		cout << "---------------------------------------------------------------------\n";
+		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
+		cout << "---------------------------------------------------------------------\n";
 	}
 }

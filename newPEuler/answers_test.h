@@ -219,4 +219,36 @@ namespace answers_for_testing {
 		}
 		return sum_max;
 	}
+	long long int Q12() {
+		int num_of_divisors = 1, curPrime = 0, max_num_of_divisors = 500;
+		long long int cur_num = 1, prev_num = 1, max_prime = 100000;
+		auto primes = helpers::sieve_P(max_prime);
+		while (true)
+		{
+			num_of_divisors = 1;
+			cur_num += ++prev_num;
+			long long temp = cur_num;
+			for (int prime : primes) {
+				if ((long long)(prime * prime) > temp) {//if the curent amount left is prime
+					break;
+				}
+				if (temp % prime == 0) {
+					int p_power = 0;
+					while (temp % prime == 0) {
+						temp /= prime;
+						p_power++;
+					}
+					num_of_divisors *= (p_power + 1);
+				}
+			}
+			if (temp > 1) {
+				num_of_divisors *= 2;
+			}
+			if (num_of_divisors > max_num_of_divisors)
+			{
+				break;
+			}
+		}
+		return cur_num;
+	}
 }
