@@ -46,7 +46,7 @@ namespace answers {
 		cin >> maxNum;
 		auto start = std::chrono::high_resolution_clock::now();
 		while (maxNum > fibNum) {//while we havent reached the maxNum
-			for (int i = 0; i < 3; i++) {//in a fib sequnce every third number is even so we go over the odd ones faster
+			for (int i = 0; i < 3; ++i) {//in a fib sequnce every third number is even so we go over the odd ones faster
 				int temp = fibNum;
 				fibNum += pastFib;
 				pastFib = temp;
@@ -216,7 +216,7 @@ namespace answers {
 		cout << "enter the amount of adjacent numbers: ";
 		cin >> amount;
 		auto start = std::chrono::high_resolution_clock::now();
-		for (int i = 0; i <= num.size() - amount; i++) {
+		for (int i = 0; i <= num.size() - amount; ++i) {
 			currentSize = 1;
 			for (int j = i; j < amount + i; j++) {
 				if (num[j] == '0') {
@@ -273,7 +273,7 @@ namespace answers {
 		cin >> sum_prime_max;
 		auto start = std::chrono::high_resolution_clock::now();
 		std::vector<unsigned long long> primes = helpers::sieve_P(sum_prime_max);
-		for (int i = 0; i < primes.size(); i++) {
+		for (int i = 0; i < primes.size(); ++i) {
 			sum += primes[i];
 		}
 		auto stop = std::chrono::high_resolution_clock::now();
@@ -415,5 +415,35 @@ namespace answers {
 		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
 		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "---------------------------------------------------------------------\n";
+	}
+	void Q13() {
+		std::string curr, prev;
+		int amount;
+		cout << "enter the amount of numbers u want: ";
+		cin >> amount;
+		cout << "enter " << amount << " numbers: ";
+		cin >> prev;
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int i = 0; i < amount - 1; i++)
+		{
+			cin >> curr;
+			while (curr.size() < prev.size()) {
+				curr.insert(curr.begin(), 48);
+			}
+			for (int j = curr.size() - 1; j >= 0; j--) {
+				prev[j] += curr[j] - 48;
+				helpers::fix_string(prev, j);
+			}
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+		cout << "---------------------------------------------------------------------\n";
+		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
+		cout << "---------------------------------------------------------------------\n";
+		cout << endl << prev << endl;
 	}
 }

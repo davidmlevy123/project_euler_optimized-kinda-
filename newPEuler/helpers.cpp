@@ -75,4 +75,21 @@ namespace helpers {
 			return "th";
 		}
 	}
+	void fix_string(std::string& str, int place) {
+		if (place < 0) {
+			str.insert(str.begin(), '1');
+			return;
+		}
+		else if (str[place] <= '9') {
+			return;
+		}
+		int int_value = str[place] - 48;
+		str[place] = int_value % 10 + 48;
+		if (place == 0) {
+			str.insert(str.begin(), '1');
+			return;
+		}
+		str[place - 1] += 1;
+		fix_string(str, place - 1);
+	}
 }

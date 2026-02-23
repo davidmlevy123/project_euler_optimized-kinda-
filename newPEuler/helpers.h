@@ -14,4 +14,5 @@ namespace helpers {
 	bool pali_num(int num);
 	long long int Nth_prime(long long int n);
 	std::string sufix(int n);
+	void fix_string(std::string& str, int extra);
 }

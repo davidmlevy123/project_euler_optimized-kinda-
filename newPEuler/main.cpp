@@ -23,6 +23,7 @@ int main() {
 		case 10: answers::Q10(); break;
 		case 11: answers::Q11(); break;
 		case 12: answers::Q12(); break;
+		case 13: answers::Q13(); break;
 		case -1: {
 			int test_num, num_of_tests;
 			bool stop_test = false;

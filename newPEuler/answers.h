@@ -15,4 +15,5 @@ namespace answers {
 	void Q10();//sum of all primes until x
 	void Q11();//finds the greatest pruduct of a numbers in a grid that is nxm.
 	void Q12();//finds the first triangular number with x divisors.
+	void Q13();
 }
