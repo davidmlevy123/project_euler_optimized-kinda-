@@ -51,7 +51,7 @@ namespace Utils {
             std::cout << "[Time]   " << name << " Average: " << average_ms << " milliseconds (" << iterations << " runs)\n";
             std::cout << "[Time]   " << name << " Average: " << (long double)(total_sec.count() / iterations) << " seconds (" << iterations << " runs)\n";
             std::cout << "[Total Time]     " << (long double)(total_sec.count()) << " seconds (" << iterations << " runs)\n";
-            std::cout << "---------------------------------------------------------------------\n";
+            cout << "-------------------------------------------------------------------------------------------------\n";
         }
     };
 }

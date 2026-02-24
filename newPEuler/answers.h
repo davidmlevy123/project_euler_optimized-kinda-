@@ -15,5 +15,9 @@ namespace answers {
 	void Q10();//sum of all primes until x
 	void Q11();//finds the greatest pruduct of a numbers in a grid that is nxm.
 	void Q12();//finds the first triangular number with x divisors.
-	void Q13();
+	void Q13();//finds the sum of n numbers.
+	void Q14();//finds the largest collatz sequence until n.
+	void Q15();//finds the amount of paths between 2 points on a m by n grid
+	void Q16();//finds n^m and the sum of its digits.
+	void Q17();
 }

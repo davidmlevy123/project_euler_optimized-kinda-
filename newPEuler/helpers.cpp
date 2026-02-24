@@ -8,7 +8,7 @@ namespace helpers {
 		}
 		return num2;
 	}
-	bool isPrime(unsigned long long int num) {
+	bool is_prime(unsigned long long int num) {
 		if (num == 2 || num == 3) {
 			return true;
 		}
@@ -35,10 +35,10 @@ namespace helpers {
 		return primes;
 	}
 	std::vector<unsigned long long int> sieve_P(unsigned long long int max) {
-		std::vector<bool> isPrime = sieveB(max);
+		std::vector<bool> is_prime = sieveB(max);
 		std::vector<unsigned long long int> primes;
 		for (long long int i = 0; i<= max; ++i) {
-			if (isPrime[i]) {
+			if (is_prime[i]) {
 				primes.push_back(i);
 			}
 		}
@@ -92,4 +92,38 @@ namespace helpers {
 		str[place - 1] += 1;
 		fix_string(str, place - 1);
 	}
+	long long int ncr(int top, int bottom) {
+		long long int ans = 1;
+		if (bottom > top - bottom) {
+			bottom = top - bottom;//n(ncr)k=n(ncr)(n-k)
+		}
+		for (int i = 1; i <= bottom; ++i) {
+			ans *= top - i + 1;
+			ans /= i;
+		}
+		return ans;
+	}
+	long long int count_three_digits(long long int n) {
+		int one_dig[] = { 0, 3, 3, 5, 4, 4, 3, 5, 5, 4 };
+		int teens[] = { 3, 6, 6, 8, 8, 7, 7, 9, 8, 8 };
+		int two_digits[] = {0, 0, 6, 6, 5, 5, 5, 7, 6, 6};
+		int num_of_letters = 0;
+		if (n >= 100) {
+			num_of_letters += one_dig[n / 100] + 7;//7 for one hundred
+			if (n % 100 != 0) {
+				num_of_letters += 3;//and
+			}
+		}
+		n = n % 100;
+		if (n >= 10 && n < 20)
+		{
+			num_of_letters += teens[n - 10];
+		}
+		else {
+			num_of_letters += two_digits[n / 10];
+			num_of_letters += one_dig[n % 10];
+		}
+		return num_of_letters;
+	}
+
 }
