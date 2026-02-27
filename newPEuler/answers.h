@@ -19,5 +19,6 @@ namespace answers {
 	void Q14();//finds the largest collatz sequence until n.
 	void Q15();//finds the amount of paths between 2 points on a m by n grid
 	void Q16();//finds n^m and the sum of its digits.
-	void Q17();
+	void Q17();//finds the amount of letters used to count until n.
+	void Q19();//counts the amount of sundays on the first date of the month since jan 1 1900
 }

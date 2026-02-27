@@ -603,4 +603,69 @@ namespace answers {
 		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "-------------------------------------------------------------------------------------------------\n";
 	}
+	void Q19() {
+		int end_date_day, end_date_year, month_num, day_of_weak = 0, count = 0, month_num_days;
+		std::string month;
+		int month_lengths[] = { 0,31,-1,31,30,31,30,31,31,30,31,30,31 };	
+		cout << "enter the date you want to know how many sundays fell on the first day of the month: ";
+		cin >> end_date_day >> month >> end_date_year;
+		auto start = std::chrono::high_resolution_clock::now();
+		month_num = helpers::month_to_int(month);
+		if (month_num == -1) {
+			cout << "bad month\n";
+			return;
+		}
+		month_num_days = month_lengths[month_num];
+		if (month_num_days == -1) {
+			if (helpers::is_leap_year(end_date_year)) {
+				month_num_days = 29;
+			}
+			else {
+				month_num_days = 28;
+			}
+		}
+		int cur_year = 1900, cur_day = 2, cur_month = 1, cur_month_days, cur_day_in_month = 1;
+		while (cur_year != end_date_year || cur_day_in_month != end_date_day || cur_month != month_num) {
+			if (cur_day_in_month == 1 && cur_day == 1 && cur_year != 1900) {
+				count++;
+			}
+			cur_month_days = month_lengths[cur_month];
+			if (cur_month_days == -1) {
+				if (helpers::is_leap_year(cur_year)) {
+					cur_month_days = 29;
+				}
+				else {
+					cur_month_days = 28;
+				}
+			}
+			if (cur_day_in_month == cur_month_days) {
+				if (cur_month == 12) {
+					cur_month = 1;
+					cur_year++;
+				}
+				else {
+					cur_month++;
+				}
+				cur_day_in_month = 0;
+			}
+			if (cur_day == 7) {
+				cur_day = 1;
+				cur_day_in_month++;
+			}
+			else {
+				cur_day++;
+				cur_day_in_month++;
+			}//else
+		}//while
+		auto stop = std::chrono::high_resolution_clock::now();
+		cout << "the amount of sundays that fall on the first day of the month is: " << count << endl;
+		cout << "-------------------------------------------------------------------------------------------------\n";
+		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
+		cout << "-------------------------------------------------------------------------------------------------\n";
+	}
 }

@@ -18,4 +18,6 @@ namespace helpers {
 	void fix_string(std::string& str, int extra);
 	long long int ncr(int top, int bottom);
 	long long int count_three_digits(long long int n);
+	int month_to_int(const std::string month);
+	bool is_leap_year(const int year);
 }

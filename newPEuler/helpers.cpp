@@ -125,5 +125,57 @@ namespace helpers {
 		}
 		return num_of_letters;
 	}
-
+	int month_to_int(const std::string month) {
+		if (month == "Jan" || month == "January" || month == "jan" || month == "january") {
+			return 1;
+		}
+		else if (month == "Feb" || month == "February" || month == "feb" || month == "february") {
+			return 2;
+		}
+		else if (month == "Mar" || month == "March" || month == "mar" || month == "march") {
+			return 3;
+		}
+		else if (month == "Apr" || month == "April" || month == "apr" || month == "april") {
+			return 4;
+		}
+		else if (month == "May" || month == "may") {
+			return 5;
+		}
+		else if (month == "Jun" || month == "June" || month == "jun" || month == "june") {
+			return 6;
+		}
+		else if (month == "Jul" || month == "July" || month == "jun" || month == "july") {
+			return 7;
+		}
+		else if (month == "Aug" || month == "August" || month == "aug" || month == "August") {
+			return 8;
+		}
+		else if (month == "Sep" || month == "September" || month == "sep" || month == "september") {
+			return 9;
+		}
+		else if (month == "Oct" || month == "October" || month == "oct" || month == "october") {
+			return 10;
+		}
+		else if (month == "Nov" || month == "November" || month == "nov" || month == "november") {
+			return 11;
+		}
+		else if (month == "Dec" || month == "December" || month == "dec" || month == "december") {
+			return 12;
+		}
+		else {
+			return -1;
+		}
+	}
+	bool is_leap_year(const int year) {
+		if (year % 4 == 0) {
+			if (year % 100 == 0) {
+				if (year % 400 == 0) {
+					return true;
+				}
+				return false;
+			}		
+			return true;
+		}
+		return false;
+	}
 }

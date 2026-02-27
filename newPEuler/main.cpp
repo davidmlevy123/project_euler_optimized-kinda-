@@ -29,6 +29,7 @@ int main() {
 		case 15: answers::Q15(); break;
 		case 16: answers::Q16(); break;
 		case 17: answers::Q17(); break;
+		case 19: answers::Q19(); break;
 		case -1: {
 			int test_num, num_of_tests;
 			bool stop_test = false;
@@ -138,6 +139,12 @@ int main() {
 					cout << "enter amount of tests: ";
 					cin >> num_of_tests;
 					Utils::Benchmarker::MeasureAndPrint("Q17", answers_for_testing::Q17, num_of_tests);
+					break;
+				}
+				case 19: {
+					cout << "enter amount of tests: ";
+					cin >> num_of_tests;
+					Utils::Benchmarker::MeasureAndPrint("Q19", answers_for_testing::Q19, num_of_tests);
 					break;
 				}
 				default:
