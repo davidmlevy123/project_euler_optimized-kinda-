@@ -442,7 +442,7 @@ namespace answers_for_testing {
 		return sum_of_digs;
 	}
 	long long int Q17() {
-		int max_num = 1000 , save_max_num;
+		int max_num = 1000, save_max_num;
 		long long int total_sum = 0;
 		save_max_num = max_num;
 		int powers[] = { 0,8,7,7,8,11,11,10,10,9,9,9 };//goes untill decilion(10^33)
@@ -521,5 +521,17 @@ namespace answers_for_testing {
 			}//else
 		}//while
 		return count;
+	}
+	long long int Q20() {
+		int n = 100 , sum_of_digs = 0;
+		std::vector<int> ans(1, 1);
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int i = 2; i <= n; ++i) {
+			helpers::vec_times(ans, i);
+		}
+		for (int i = 0; i < ans.size(); ++i) {
+			sum_of_digs += ans[i];
+		}
+		return sum_of_digs;
 	}
 }

@@ -668,4 +668,31 @@ namespace answers {
 		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "-------------------------------------------------------------------------------------------------\n";
 	}
+	void Q20() {
+		int n, sum_of_digs = 0;
+		std::vector<int> ans(1, 1);
+		cout << "enter the number you want the sum of it factorials digits: ";
+		cin >> n;
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int i = 2; i <= n; ++i) {
+			helpers::vec_times(ans, i);
+		}
+		for (int i = 0; i < ans.size(); ++i) {
+			sum_of_digs += ans[i];
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+		cout << n << "! is: ";
+		for (int i = ans.size() - 1; i >= 0; --i) {
+			cout << ans[i];
+		}
+		cout << endl << "the sum of the digits is: " << sum_of_digs << endl;
+		cout << "-------------------------------------------------------------------------------------------------\n";
+		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
+		cout << "-------------------------------------------------------------------------------------------------\n";
+	}
 }

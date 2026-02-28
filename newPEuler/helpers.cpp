@@ -178,4 +178,17 @@ namespace helpers {
 		}
 		return false;
 	}
+	void vec_times(std::vector<int>& num, int num_to_times) {
+		int size_of_vec = num.size();
+		int extra = 0;
+		for (int i = 0; i < size_of_vec; ++i) {
+			int cur_num = num[i] * num_to_times + extra;
+			extra = cur_num / 10;
+			num[i] = cur_num % 10;
+		}
+		while (extra > 0) {
+			num.push_back(extra % 10);
+			extra /= 10;
+		}
+	}
 }

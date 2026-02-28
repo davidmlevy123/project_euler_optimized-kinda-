@@ -20,4 +20,5 @@ namespace helpers {
 	long long int count_three_digits(long long int n);
 	int month_to_int(const std::string month);
 	bool is_leap_year(const int year);
+	void vec_times(std::vector<int>& num, int num_to_times);
 }
