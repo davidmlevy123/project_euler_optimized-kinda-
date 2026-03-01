@@ -22,4 +22,5 @@ namespace answers {
 	void Q17();//finds the amount of letters used to count until n.
 	void Q19();//counts the amount of sundays on the first date of the month since jan 1 1900
 	void Q20();//finds the sum of the digits of n!.
+	void Q21();//finds the sum of all the amicable pairs until n.
 }

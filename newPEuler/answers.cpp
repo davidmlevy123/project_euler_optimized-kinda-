@@ -695,4 +695,29 @@ namespace answers {
 		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "-------------------------------------------------------------------------------------------------\n";
 	}
+	void Q21() {
+		long long int max_num, sum_of_pairs = 0;
+		cout << "enter a number to find the sum of all amicable pairs up to that number: ";
+		cin >> max_num;
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int i = 1; i < max_num; ++i) {
+			long long int sum1 = helpers::sum_of_proper_divisors(i);
+			if (sum1 > i && sum1 < max_num) {//we have sum1>i so we only count the pair once and smaller then max_num so we dont waste time on pairs that are too big
+				long long int sum2 = helpers::sum_of_proper_divisors(sum1);
+				if (sum2 == i) {
+					sum_of_pairs = sum_of_pairs + sum1 + sum2;
+				}//if its a pair
+			}//if its a possible pair
+		}//for i
+		auto stop = std::chrono::high_resolution_clock::now();
+		cout << "the sum of all the amicable pairs up to " << max_num << " is: " << sum_of_pairs << endl;
+		cout << "-------------------------------------------------------------------------------------------------\n";
+		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
+		cout << "-------------------------------------------------------------------------------------------------\n";
+	}
 }

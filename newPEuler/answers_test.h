@@ -534,4 +534,17 @@ namespace answers_for_testing {
 		}
 		return sum_of_digs;
 	}
+	long long int Q21() {
+		long long int max_num = 10000, sum_of_pairs = 0;
+		for (int i = 1; i < max_num; ++i) {
+			long long int sum1 = helpers::sum_of_proper_divisors(i);
+			if (sum1 > i && sum1 < max_num) {
+				long long int sum2 = helpers::sum_of_proper_divisors(sum1);
+				if (sum2 == i) {
+					sum_of_pairs = sum_of_pairs + sum1 + sum2;
+				}
+			}
+		}
+		return sum_of_pairs;
+	}
 }
