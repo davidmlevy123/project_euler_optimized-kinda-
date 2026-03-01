@@ -720,4 +720,46 @@ namespace answers {
 		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "-------------------------------------------------------------------------------------------------\n";
 	}
+	void Q22() {
+		std::vector<std::string> names;
+		std::string file_name, cur_name;
+		long long int sum_of_scores = 0;
+		cout << "enter the file name: ";
+		cin >> file_name;
+		auto start = std::chrono::high_resolution_clock::now();
+		std::ifstream file_of_names(file_name);
+		if (!file_of_names.is_open()) {
+			cout << "that is not a known file.\n";
+			return;
+		}
+		while (std::getline(file_of_names, cur_name, ',')) {
+			if (!cur_name.empty() && cur_name.front() == '"') {
+				cur_name.erase(0, 1);//gets rid of the " before the name
+			}
+			if (!cur_name.empty() && cur_name.back() == '"') {
+				cur_name.pop_back();//gets rid of the " after the name
+			}
+			names.push_back(cur_name);
+		}
+		std:sort(names.begin(), names.end());
+		for (int i = 0; i < names.size(); ++i) {
+			cur_name = names[i];
+			int cur_name_ASCII = 0;
+			for (int j = 0; j < cur_name.size(); ++j) {
+				cur_name_ASCII = cur_name_ASCII + cur_name[j] - '0';
+			}
+			sum_of_scores = sum_of_scores + cur_name_ASCII * i;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+		file_of_names.close();
+		cout << "the sum of the scores is: " << sum_of_scores << endl;
+		cout << "-------------------------------------------------------------------------------------------------\n";
+		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
+		cout << "-------------------------------------------------------------------------------------------------\n";
+	}
 }

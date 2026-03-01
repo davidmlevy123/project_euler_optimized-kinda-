@@ -6,6 +6,7 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
+#include <fstream>
 namespace helpers {
 	int GCD(int num1, int num2);
 	bool is_prime(unsigned long long int num);

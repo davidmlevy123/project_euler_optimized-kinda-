@@ -547,4 +547,34 @@ namespace answers_for_testing {
 		}
 		return sum_of_pairs;
 	}
+	long long int Q22() {
+		std::vector<std::string> names;
+		std::string file_name = "names.txt", cur_name;
+		long long int sum_of_scores = 0;
+		std::ifstream file_of_names(file_name);
+		if (!file_of_names.is_open()) {
+			cout << "ERROR: file can't be opened.\n";
+			return -1;
+		}
+		while (std::getline(file_of_names, cur_name, ',')) {
+			if (!cur_name.empty() && cur_name.front() == '"') {
+				cur_name.erase(0, 1);
+			}
+			if (!cur_name.empty() && cur_name.back() == '"') {
+				cur_name.pop_back();
+			}
+			names.push_back(cur_name);
+		}
+		std:sort(names.begin(), names.end());
+		for (int i = 0; i < names.size(); ++i) {
+			cur_name = names[i];
+			int cur_name_ASCII = 0;
+			for (int j = 0; j < cur_name.size(); ++j) {
+				cur_name_ASCII = cur_name_ASCII + cur_name[j] - '0';
+			}
+			sum_of_scores = sum_of_scores + cur_name_ASCII * i;
+		}
+		file_of_names.close();
+		return sum_of_scores;
+	}
 }
