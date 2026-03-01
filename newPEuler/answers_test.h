@@ -565,14 +565,14 @@ namespace answers_for_testing {
 			}
 			names.push_back(cur_name);
 		}
-		std:sort(names.begin(), names.end());
+		std::sort(names.begin(), names.end());
 		for (int i = 0; i < names.size(); ++i) {
 			cur_name = names[i];
 			int cur_name_ASCII = 0;
 			for (int j = 0; j < cur_name.size(); ++j) {
-				cur_name_ASCII = cur_name_ASCII + cur_name[j] - '0';
+				cur_name_ASCII = cur_name_ASCII + cur_name[j] - 'A' + 1;
 			}
-			sum_of_scores = sum_of_scores + cur_name_ASCII * i;
+			sum_of_scores = sum_of_scores + cur_name_ASCII * (i + 1);
 		}
 		file_of_names.close();
 		return sum_of_scores;

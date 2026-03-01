@@ -24,4 +24,5 @@ namespace answers {
 	void Q20();//finds the sum of the digits of n!.
 	void Q21();//finds the sum of all the amicable pairs until n.
 	void Q22();//finds the sum of the "scores"(place in sorted array*ASCII value of word) of all the words in a file.
+	void Q23();//finds the sum of all the numbers that can't be written as the sum of 2 abundant numbers until n.
 }

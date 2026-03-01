@@ -741,14 +741,14 @@ namespace answers {
 			}
 			names.push_back(cur_name);
 		}
-		std:sort(names.begin(), names.end());
+		std::sort(names.begin(), names.end());
 		for (int i = 0; i < names.size(); ++i) {
 			cur_name = names[i];
 			int cur_name_ASCII = 0;
 			for (int j = 0; j < cur_name.size(); ++j) {
-				cur_name_ASCII = cur_name_ASCII + cur_name[j] - '0';
+				cur_name_ASCII = cur_name_ASCII + cur_name[j] - 'A'+1;
 			}
-			sum_of_scores = sum_of_scores + cur_name_ASCII * i;
+			sum_of_scores = sum_of_scores + cur_name_ASCII * (i + 1);
 		}
 		auto stop = std::chrono::high_resolution_clock::now();
 		file_of_names.close();
@@ -761,5 +761,26 @@ namespace answers {
 		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
 		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "-------------------------------------------------------------------------------------------------\n";
+	}
+	void Q23() {
+		int n;
+		std::vector<int> abundant_nums;
+		cout << "enter the upper limit to find the sum of all positive integers that cannot be written as the sum of two abundant numbers: ";
+		cin >> n;
+		auto start = std::chrono::high_resolution_clock::now();
+		if (n > 28123) {//the are no numbers that can't be written as the sum of 2 abundant numbers bigger than 28123.
+			n = 28123;
+		}
+		for (int i = 1; i < n; ++i) {
+			int sum_of_divs = helpers::sum_of_proper_divisors(i);
+			if (i < sum_of_divs) {
+				abundant_nums.push_back(i);
+			}
+		}
+		for (int i = 1; i < abundant_nums.size(); ++i) {
+			for (int j = 1; j < abundant_nums.size(); ++j) {
+				abort;
+			}
+		}
 	}
 }
