@@ -200,5 +200,15 @@ namespace helpers {
 		}
 		return sum;
 	}
-
+	long long int factorial(const int n) {
+		if (n > 20) {
+			std::cout << "ERROR: Overflow.\n";
+			return -1;
+		}
+		unsigned long long int ans = 1;
+		for (int i = 2; i <= n; ++i) {
+			ans *= i;
+		}
+		return ans;
+	}
 }

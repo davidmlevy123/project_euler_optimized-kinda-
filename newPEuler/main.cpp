@@ -7,7 +7,7 @@ int main() {
 	int Qnum;
 	bool stop = false;
 	while (!stop) {
-		cout << "------------------------- enter question number(0 to end,-1 for tests) --------------------------\n\t\t\t\t\t    ";
+		cout << "------------------------- enter question number(0 to end,-1 for tests) --------------------------\n\t\t\t\t\t      ";
 		cin >> Qnum;
 		cout << "-------------------------------------------------------------------------------------------------\n";
 		switch (Qnum) {
@@ -33,12 +33,14 @@ int main() {
 		case 20: answers::Q20(); break;
 		case 21: answers::Q21(); break;
 		case 22: answers::Q22(); break;
+		case 23: answers::Q23(); break;
+		case 24: answers::Q24(); break;
 		case -1: {
 			int test_num, num_of_tests;
 			bool stop_test = false;
 			while (!stop_test)
 			{
-				cout << "------------------------------ enter question to test(0 to return) ------------------------------\n\t\t\t\t\t    ";
+				cout << "------------------------------ enter question to test(0 to return) ------------------------------\n\t\t\t\t\t      ";
 				cin >> test_num;
 				switch (test_num) {
 				case 0: stop_test = true; break;
@@ -166,6 +168,18 @@ int main() {
 					cout << "enter amount of tests: ";
 					cin >> num_of_tests;
 					Utils::Benchmarker::MeasureAndPrint("Q22", answers_for_testing::Q22, num_of_tests);
+					break;
+				}
+				case 23: {
+					cout << "enter amount of tests: ";
+					cin >> num_of_tests;
+					Utils::Benchmarker::MeasureAndPrint("Q23", answers_for_testing::Q23, num_of_tests);
+					break;
+				}
+				case 24: {
+					cout << "enter amount of tests: ";
+					cin >> num_of_tests;
+					Utils::Benchmarker::MeasureAndPrint("Q24", answers_for_testing::Q24, num_of_tests);
 					break;
 				}
 				default:

@@ -763,24 +763,100 @@ namespace answers {
 		cout << "-------------------------------------------------------------------------------------------------\n";
 	}
 	void Q23() {
-		int n;
+		int n, sum_of_abundant_nums = 0;
 		std::vector<int> abundant_nums;
-		cout << "enter the upper limit to find the sum of all positive integers that cannot be written as the sum of two abundant numbers: ";
+		cout << "enter the maximum number to find the sum of all numbers that can't be written as the sum of two abundant numbers: ";
 		cin >> n;
 		auto start = std::chrono::high_resolution_clock::now();
 		if (n > 28123) {//the are no numbers that can't be written as the sum of 2 abundant numbers bigger than 28123.
 			n = 28123;
 		}
-		for (int i = 1; i < n; ++i) {
+		std::vector <bool> is_abundant_sum(n + 1, false);
+		for (int i = 1; i <= n; ++i) {
 			int sum_of_divs = helpers::sum_of_proper_divisors(i);
 			if (i < sum_of_divs) {
 				abundant_nums.push_back(i);
 			}
 		}
-		for (int i = 1; i < abundant_nums.size(); ++i) {
-			for (int j = 1; j < abundant_nums.size(); ++j) {
-				abort;
+		for (int i : abundant_nums) {
+			for (int j : abundant_nums) {
+				int cur_num = i + j;
+				if (cur_num <= n) {
+					is_abundant_sum[cur_num] = true;
+				}
+				else {
+					break;
+				}
 			}
 		}
+		for (int i = 1; i <= n; ++i) {
+			if (is_abundant_sum[i] == false) {
+				sum_of_abundant_nums += i;
+			}
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+		cout << "the sum of all the non abundant sums until " << n << " is: " << sum_of_abundant_nums << endl;
+		cout << "-------------------------------------------------------------------------------------------------\n";
+		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
+		cout << "-------------------------------------------------------------------------------------------------\n";
+	}
+	void Q24() {
+		long long int permutation_num, num_of_permutation, save_permutation_num;//permutation=(alphabet size)!
+		std::vector<int> alphabet, ans;
+		int cur_iteration;
+		cout << "enter the alphabet(numbers, -1 to stop): ";
+		while (true) {
+			int temp;
+			cin >> temp;
+			if (temp == -1) {
+				break;
+			}
+			alphabet.push_back(temp);
+		}
+		cout << "enter the permutation number that you want: ";
+		cin >> permutation_num;
+		save_permutation_num = permutation_num;
+		auto start = std::chrono::high_resolution_clock::now();
+		permutation_num--;//fixes off by one error
+		cur_iteration = alphabet.size();
+		num_of_permutation = helpers::factorial(cur_iteration);
+		if (num_of_permutation == -1) {
+			return;
+		}
+		if (num_of_permutation < permutation_num) {
+			cout << "the current alphabet doesn't have " << permutation_num + 1 << " permutations.\n";//brings back the number after we made it smaller to fix the off by ome error
+			return;
+		}
+		while (true) {
+			int amount_of_cases = num_of_permutation / cur_iteration;
+			int cur_letter = permutation_num / amount_of_cases;
+			ans.push_back(alphabet[cur_letter]);
+			alphabet.erase(alphabet.begin() + cur_letter);
+			permutation_num = permutation_num % amount_of_cases;
+			num_of_permutation = amount_of_cases;
+			cur_iteration--;
+			if (cur_iteration == 0) {
+				break;
+			}
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+		std::string suffix = helpers::sufix(save_permutation_num);
+		cout << "the " << save_permutation_num << "'" << suffix << " is: ";
+		for (int i = 0; i < ans.size(); ++i) {
+			cout << ans[i];
+		}
+		cout << endl << "-------------------------------------------------------------------------------------------------\n";
+		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
+		cout << "-------------------------------------------------------------------------------------------------\n";
 	}
 }

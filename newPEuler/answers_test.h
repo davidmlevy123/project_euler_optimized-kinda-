@@ -577,4 +577,54 @@ namespace answers_for_testing {
 		file_of_names.close();
 		return sum_of_scores;
 	}
+	long long int Q23() {
+		int n = 28123, sum_of_abundant_nums = 0;
+		std::vector<int> abundant_nums;
+		std::vector <bool> is_abundant_sum(n + 1, false);
+		for (int i = 1; i <= n; ++i) {
+			int sum_of_divs = helpers::sum_of_proper_divisors(i);
+			if (i < sum_of_divs) {
+				abundant_nums.push_back(i);
+			}
+		}
+		for (int i : abundant_nums) {
+			for (int j : abundant_nums) {
+				int cur_num = i + j;
+				if (cur_num <= n) {
+					is_abundant_sum[cur_num] = true;
+				}
+				else {
+					break;
+				}
+			}
+		}
+		for (int i = 1; i <= n; ++i) {
+			if (is_abundant_sum[i] == false) {
+				sum_of_abundant_nums += i;
+			}
+		}
+		return sum_of_abundant_nums;
+	}
+	long long int Q24() {
+		long long int permutation_num = 999999, num_of_permutation, ans_int = 0;
+		std::vector<int> alphabet = { 0,1,2,3,4,5,6,7,8,9 }, ans;
+		int cur_iteration = 10;
+		num_of_permutation = helpers::factorial(cur_iteration);
+		while (true) {
+			int amount_of_cases = num_of_permutation / cur_iteration;
+			int cur_letter = permutation_num / amount_of_cases;
+			ans.push_back(alphabet[cur_letter]);
+			alphabet.erase(alphabet.begin() + cur_letter);
+			permutation_num = permutation_num % amount_of_cases;
+			num_of_permutation = amount_of_cases;
+			cur_iteration--;
+			if (cur_iteration == 0) {
+				break;
+			}
+		}
+		for (int i = 0; i < ans.size(); ++i) {
+			ans_int = ans_int * 10 + ans[i];
+		}
+		return ans_int;
+	}
 }
