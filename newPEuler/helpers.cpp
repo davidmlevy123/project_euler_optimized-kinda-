@@ -8,7 +8,7 @@ namespace helpers {
 		}
 		return num2;
 	}
-	bool is_prime(unsigned long long int num) {
+	bool is_prime(const unsigned long long int num) {
 		if (num == 2 || num == 3) {
 			return true;
 		}
@@ -22,19 +22,19 @@ namespace helpers {
 		}
 		return true;
 	}
-	std::vector<bool> sieveB(unsigned long long int maxP) {
-		std::vector <bool> primes(maxP + 1, true);
+	std::vector<bool> sieveB(const unsigned long long int max_prime) {
+		std::vector <bool> primes(max_prime + 1, true);
 		primes[0] = primes[1] = false;
-		for (unsigned long long int p = 2; p * p <= maxP; ++p) {
+		for (unsigned long long int p = 2; p * p <= max_prime; ++p) {
 			if (primes[p]) {
-				for (int i = p * p; i <= maxP; i += p) {
+				for (int i = p * p; i <= max_prime; i += p) {
 					primes[i] = false;
 				}
 			}
 		}
 		return primes;
 	}
-	std::vector<unsigned long long int> sieve_P(unsigned long long int max) {
+	std::vector<unsigned long long int> sieve_P(const unsigned long long int max) {
 		std::vector<bool> is_prime = sieveB(max);
 		std::vector<unsigned long long int> primes;
 		for (long long int i = 0; i<= max; ++i) {
@@ -44,11 +44,11 @@ namespace helpers {
 		}
 		return primes;
 	}
-	bool pali_num(int num) {
+	bool pali_num(const int num) {
 		std::string Snum = std::to_string(num);
 		return pali_str(Snum);
 	}
-	bool pali_str(std::string& str) {
+	bool pali_str(const std::string& str) {
 		for (int i = 0; i < str.size() / 2; ++i) {
 			if (str[i] != str[str.size() - i - 1]) {
 				return false;
@@ -56,18 +56,18 @@ namespace helpers {
 		}
 		return true;
 	}
-	long long int Nth_prime(long long int n) {
-		auto primes = sieve_P(n * log(n) + n * log(log(n)));
+	long long int Nth_prime(const unsigned long long int n) {
+		std::vector<unsigned long long int> primes = sieve_P(n * log(n) + n * log(log(n)));
 		return primes[n - 1];
 	}
-	std::string sufix(int n) {
-		if (n == 1) {
+	std::string sufix(const long long int n) {
+		if (n == 1 || n == -1) {
 			return "st";
 		}
-		else if (n == 2) {
+		else if (n == 2 || n == -2) {
 			return "nd";
 		}
-		else if (n == 3) {
+		else if (n == 3 || n == -3) {
 			return "rd";
 		}
 		else
@@ -75,7 +75,7 @@ namespace helpers {
 			return "th";
 		}
 	}
-	void fix_string(std::string& str, int place) {
+	void fix_string(std::string& str,const int place) {
 		if (place < 0) {
 			str.insert(str.begin(), '1');
 			return;
@@ -178,7 +178,7 @@ namespace helpers {
 		}
 		return false;
 	}
-	void vec_times(std::vector<int>& num, int num_to_times) {
+	void vec_times(std::vector<int>& num, const int num_to_times) {
 		int size_of_vec = num.size();
 		int extra = 0;
 		for (int i = 0; i < size_of_vec; ++i) {
@@ -191,7 +191,7 @@ namespace helpers {
 			extra /= 10;
 		}
 	}
-	long long int sum_of_proper_divisors(const int num) {
+	long long int sum_of_proper_divisors(const unsigned long long int num) {
 		int sum = 1;
 		for (int i = 2; i < num; ++i) {
 			if (num % i == 0) {
