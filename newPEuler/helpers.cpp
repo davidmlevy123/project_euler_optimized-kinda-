@@ -27,7 +27,7 @@ namespace helpers {
 		primes[0] = primes[1] = false;
 		for (unsigned long long int p = 2; p * p <= max_prime; ++p) {
 			if (primes[p]) {
-				for (int i = p * p; i <= max_prime; i += p) {
+				for (unsigned long long int i = p * p; i <= max_prime; i += p) {
 					primes[i] = false;
 				}
 			}

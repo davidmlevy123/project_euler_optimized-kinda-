@@ -80,8 +80,8 @@ namespace answers {
 			return;
 		}
 		maxPrime = sqrt(num);
-		auto primes = helpers::sieve_P(maxPrime);
-		for (auto primeNum : primes) {
+		std::vector<unsigned long long int> primes = helpers::sieve_P(maxPrime);
+		for (unsigned long long int primeNum : primes) {
 			pFactors.insert({ primeNum, 0 });
 		}
 		while ((curPrime != (primes.size() - 1)) && num != 0) {
@@ -272,9 +272,11 @@ namespace answers {
 		cout << "enter the max number that you want the sum of all primes until: ";
 		cin >> sum_prime_max;
 		auto start = std::chrono::high_resolution_clock::now();
-		std::vector<unsigned long long> primes = helpers::sieve_P(sum_prime_max);
-		for (int i = 0; i < primes.size(); ++i) {
-			sum += primes[i];
+		std::vector<bool> primes = helpers::sieveB(sum_prime_max);
+		for (int i = 0; i < sum_prime_max; ++i) {
+			if (primes[i]) {
+				sum += primes[i];
+			}
 		}
 		auto stop = std::chrono::high_resolution_clock::now();
 		cout << "the sum of all the primes until " << sum_prime_max << " is: " << sum << endl;
@@ -378,14 +380,14 @@ namespace answers {
 		cout << "enter the amount of divisors that you want a triangular number to have: ";
 		cin >> max_num_of_divisors;
 		auto start = std::chrono::high_resolution_clock::now();
-		auto primes = helpers::sieve_P(max_prime);
+		std::vector<unsigned long long int> primes = helpers::sieve_P(max_prime);
 		while (true)
 		{
 			num_of_divisors = 1;
 			cur_num += ++prev_num;
 			long long temp = cur_num;
-			for (int prime : primes) {
-				if ((long long)(prime * prime) > temp) {//if the curent amount left is prime
+			for (unsigned long long int prime : primes) {
+				if ((prime * prime) > temp) {//if the curent amount left is prime
 					break;
 				}
 				if (temp % prime == 0) {

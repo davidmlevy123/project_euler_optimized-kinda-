@@ -50,7 +50,7 @@ namespace answers_for_testing {
 		long long int num = 600851475143;
 		int maxPrime, curPrime = 0, max = 0;
 		maxPrime = sqrt(num);
-		auto primes = helpers::sieve_P(maxPrime);
+		std::vector<unsigned long long int> primes = helpers::sieve_P(maxPrime);
 		while ((curPrime != (primes.size() - 1)) && num != 0) {
 			while (num % primes[curPrime] == 0 && num != 0 && primes[curPrime] != 0) {
 				num /= primes[curPrime];
@@ -63,7 +63,7 @@ namespace answers_for_testing {
 		}
 		return max;
 	}
-	long long int  Q4() {
+	long long int Q4() {
 		int num_digs = 3, max = 9;
 		for (int i = pow(10, num_digs) - 1; i >= 1; i--) {
 			for (int j = pow(10, num_digs) - 1; j >= 1; j--) {
@@ -131,9 +131,11 @@ namespace answers_for_testing {
 	}
 	long long int Q10() {
 		long long int sum_prime_max = 2000000, sum = 0;
-		std::vector<unsigned long long> primes = helpers::sieve_P(sum_prime_max);
-		for (int i = 0; i < primes.size(); ++i) {
-			sum += primes[i];
+		std::vector<bool> primes = helpers::sieveB(sum_prime_max);
+		for (int i = 0; i < sum_prime_max; ++i) {
+			if (primes[i]) {
+				sum += i;
+			}
 		}
 		return sum;
 	}
@@ -222,14 +224,14 @@ namespace answers_for_testing {
 	long long int Q12() {
 		int num_of_divisors = 1, curPrime = 0, max_num_of_divisors = 500;
 		long long int cur_num = 1, prev_num = 1, max_prime = 100000;
-		auto primes = helpers::sieve_P(max_prime);
+		std::vector<unsigned long long int> primes = helpers::sieve_P(max_prime);
 		while (true)
 		{
 			num_of_divisors = 1;
 			cur_num += ++prev_num;
-			long long temp = cur_num;
-			for (int prime : primes) {
-				if ((long long)(prime * prime) > temp) {//if the curent amount left is prime
+			unsigned long long int temp = cur_num;
+			for (unsigned long long int prime : primes) {
+				if (prime * prime > temp) {//if the curent amount left is prime
 					break;
 				}
 				if (temp % prime == 0) {
