@@ -23,6 +23,7 @@ A collection of high-performance C++ solutions to Project Euler challenges. Unli
 
 To test efficiency or solve a specific case, compile the project and use the interactive menu:
 
-1. Input `-1` to enter the `answer_test` mode.
-2. Input the desired problem number to test.
-3. Provide the number of iterations for the performance test. The system will run warmup cycles and output the standard Project Euler result along with the average microsecond execution time across all runs.
+1. Recommended to use Release mode instead of Debug mode for compiling. 
+2. Input `-1` to enter the `answer_test` mode.
+3. Input the desired problem number to test.
+4. Provide the number of iterations for the performance test. The system will run warmup cycles and output the standard Project Euler result along with the average microsecond execution time across all runs.
