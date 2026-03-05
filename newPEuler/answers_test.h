@@ -415,7 +415,7 @@ namespace answers_for_testing {
 		return index;
 	}
 	long long int Q15() {
-		int x1 = 0, x2 = 0, y1 = 20, y2 = 20;
+		int x1 = 0, x2 = 20, y1 = 0, y2 = 20;
 		int top_of_ncr = x2 - x1 + y2 - y1;
 		int bottom_of_ncr = x2 - x1;
 		long long ans = helpers::ncr(top_of_ncr, bottom_of_ncr);
