@@ -253,7 +253,7 @@ namespace answers_for_testing {
 		}
 		return cur_num;
 	}
-	std::string Q13() {
+	std::string   Q13() {
 		std::string total[100] = {
 			"37107287533902102798797998220837590246510135740250",
 			"46376937677490009712648124896970078050417018260538",
@@ -580,18 +580,19 @@ namespace answers_for_testing {
 		return sum_of_scores;
 	}
 	long long int Q23() {
-		int n = 28123, sum_of_abundant_nums = 0;
+		int n = 28123;
+		long long int sum_of_abundant_nums = 0;
 		std::vector<int> abundant_nums;
-		std::vector <bool> is_abundant_sum(n + 1, false);
-		for (int i = 1; i <= n; ++i) {
-			int sum_of_divs = helpers::sum_of_proper_divisors(i);
-			if (i < sum_of_divs) {
+		std::vector<bool> is_abundant_sum(n + 1, false);
+		std::vector<unsigned long long int> all_divs = helpers::sieve_divisors(n);
+		for (int i = 12; i <= n; ++i) {//12 is the first abundant number.
+			if (i < all_divs[i]) {
 				abundant_nums.push_back(i);
 			}
 		}
-		for (int i : abundant_nums) {
-			for (int j : abundant_nums) {
-				int cur_num = i + j;
+		for (int i = 0; i < abundant_nums.size(); ++i) {
+			for (int j = i; j < abundant_nums.size(); ++j) {//we start at i because we wont want to count a,b and b,a.
+				int cur_num = abundant_nums[i] + abundant_nums[j];
 				if (cur_num <= n) {
 					is_abundant_sum[cur_num] = true;
 				}

@@ -23,5 +23,6 @@ namespace helpers {
 	bool is_leap_year(const int year);
 	void vec_times(std::vector<int>& num, const int num_to_times);
 	long long int sum_of_proper_divisors(const unsigned long long int num);
+	std::vector<unsigned long long int> sieve_divisors(const unsigned long long int n);
 	long long int factorial(const int n);
 }

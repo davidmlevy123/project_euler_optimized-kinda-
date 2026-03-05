@@ -200,6 +200,15 @@ namespace helpers {
 		}
 		return sum;
 	}
+	std::vector<unsigned long long int> sieve_divisors(const unsigned long long int n) {
+		std::vector<unsigned long long int> all_divs(n + 1, 1);//n+1 to fix the off by one error, we have them all at 1 because all nums divide by 1.
+		for (int i = 2; i <= n / 2; ++i) {//we start at 2 because we already put 1 in. We only go to n/2 because n's smallest divisor is n.
+			for (int j = i * 2; j <= n; j += i) {//puts all the numbers that divide by the current i .
+				all_divs[j] += i;
+			}
+		}
+		return all_divs;
+	}
 	long long int factorial(const int n) {
 		if (n > 20) {
 			std::cout << "ERROR: Overflow.\n";
