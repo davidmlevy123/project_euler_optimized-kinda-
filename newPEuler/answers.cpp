@@ -605,6 +605,31 @@ namespace answers {
 		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "-------------------------------------------------------------------------------------------------\n";
 	}
+	void Q18() {
+		int height, min_path = 0;
+		int* triangle;
+		cout << "enter the triangles height: ";
+		cin >> height;
+		cout << "enter the triangle: ";
+		int array_size = helpers::sum_n(height);
+		triangle = new int[array_size];
+		for (int i = 0; i < array_size; ++i) {
+			cin >> triangle[i];
+		}
+		auto start = std::chrono::high_resolution_clock::now();
+		long long int ans = helpers::triangle_maximum_sum(triangle, array_size - 1, height);
+		delete[] triangle;
+		auto stop = std::chrono::high_resolution_clock::now();
+		cout << "the longest path is: " << ans << " points long.\n";
+		cout << "-------------------------------------------------------------------------------------------------\n";
+		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
+		cout << "-------------------------------------------------------------------------------------------------\n";
+	}
 	void Q19() {
 		int end_date_day, end_date_year, month_num, day_of_weak = 0, count = 0, month_num_days;
 		std::string month;

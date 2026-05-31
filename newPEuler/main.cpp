@@ -29,6 +29,7 @@ int main() {
 		case 15: answers::Q15(); break;
 		case 16: answers::Q16(); break;
 		case 17: answers::Q17(); break;
+		case 18: answers::Q18(); break;
 		case 19: answers::Q19(); break;
 		case 20: answers::Q20(); break;
 		case 21: answers::Q21(); break;

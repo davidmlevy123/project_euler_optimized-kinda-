@@ -25,4 +25,6 @@ namespace helpers {
 	long long int sum_of_proper_divisors(const unsigned long long int num);
 	std::vector<unsigned long long int> sieve_divisors(const unsigned long long int n);
 	long long int factorial(const int n);
+	long long int triangle_maximum_sum(int* triangle, int n, int h);
+	long long int sum_n(const int& n);//sum of all the numbers until n(including)
 }

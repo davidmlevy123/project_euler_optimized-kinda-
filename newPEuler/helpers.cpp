@@ -220,4 +220,22 @@ namespace helpers {
 		}
 		return ans;
 	}
+	long long int sum_n(const int& n) {
+		long long int sum = (n * (n + 1)) / 2;
+		return sum;
+	}
+	long long int triangle_maximum_sum(int* triangle, int n, int h) {
+		if (h == 1) {
+			return triangle[0];
+		}
+		for (int i = 0; i < h - 1; ++i) {
+			if (triangle[n - i] > triangle[n - (i + 1)]) {
+				triangle[n - i - h] += triangle[n - i];
+			}
+			else {
+				triangle[n - i - h] += triangle[n - (i + 1)];
+			}
+		}
+		return triangle_maximum_sum(triangle, n - h, h - 1);
+	}
 }
