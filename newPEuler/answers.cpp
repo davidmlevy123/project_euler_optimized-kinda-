@@ -888,6 +888,38 @@ namespace answers {
 		cout << "-------------------------------------------------------------------------------------------------\n";
 	}
 	void Q25() {
-
+		int num_of_digs, place = 2;
+		std::string save_num = "1", cur_num = "1";
+		cout << "enter the number of digits to find: ";
+		cin >> num_of_digs;
+		auto start = std::chrono::high_resolution_clock::now();
+		while (cur_num.size() < num_of_digs) {
+			std::string next_num = "0" + cur_num;
+			int save_num_index = save_num.size() - 1;
+			int next_num_index = next_num.size() - 1;
+			while (save_num_index >= 0) {
+				int add = save_num[save_num_index] - '0';
+				next_num[next_num_index] += add;
+				helpers::fix_string(next_num, next_num_index);
+				next_num_index--;
+				save_num_index--;
+			}
+			if (next_num[0] == '0') {
+				next_num.erase(0, 1);
+			}
+			save_num = cur_num;
+			cur_num = next_num;
+			place++;
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+		cout << "the first fib number with " << num_of_digs << " digits is the " << place << " fib number\n";
+		cout << endl << "-------------------------------------------------------------------------------------------------\n";
+		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
+		cout << "-------------------------------------------------------------------------------------------------\n";
 	}
 }
