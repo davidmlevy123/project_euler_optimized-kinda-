@@ -147,6 +147,12 @@ int main() {
 					Utils::Benchmarker::MeasureAndPrint("Q17", answers_for_testing::Q17, num_of_tests);
 					break;
 				}
+				case 18: {
+					cout << "enter amount of tests: ";
+					cin >> num_of_tests;
+					Utils::Benchmarker::MeasureAndPrint("Q18", answers_for_testing::Q18, num_of_tests);
+					break;
+				}
 				case 19: {
 					cout << "enter amount of tests: ";
 					cin >> num_of_tests;
@@ -183,6 +189,7 @@ int main() {
 					Utils::Benchmarker::MeasureAndPrint("Q24", answers_for_testing::Q24, num_of_tests);
 					break;
 				}
+
 				default:
 				{
 					cout << "not a question with test\n";

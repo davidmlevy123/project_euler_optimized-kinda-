@@ -887,4 +887,7 @@ namespace answers {
 		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "-------------------------------------------------------------------------------------------------\n";
 	}
+	void Q25() {
+
+	}
 }
