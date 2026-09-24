@@ -1,0 +1,44 @@
+{
+    // Pick one in the Run and Debug dropdown. F5 = build + debug, Ctrl+F5 = build + run without debugging.
+    // "VS Code terminal" runs inside VS Code; "cmd window" opens a separate Windows console.
+    // cwd is the newPEuler folder so "names.txt" is found, just like in Visual Studio.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug (VS Code terminal)",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\newPEuler\\bin\\Debug\\newPEuler.exe",
+            "cwd": "${workspaceFolder}\\newPEuler",
+            "console": "integratedTerminal",
+            "preLaunchTask": "Build Debug"
+        },
+        {
+            "name": "Debug (cmd window)",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\newPEuler\\bin\\Debug\\newPEuler.exe",
+            "cwd": "${workspaceFolder}\\newPEuler",
+            "console": "externalTerminal",
+            "preLaunchTask": "Build Debug"
+        },
+        {
+            "name": "Release (VS Code terminal)",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\newPEuler\\bin\\Release\\newPEuler.exe",
+            "cwd": "${workspaceFolder}\\newPEuler",
+            "console": "integratedTerminal",
+            "preLaunchTask": "Build Release"
+        },
+        {
+            "name": "Release (cmd window)",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\newPEuler\\bin\\Release\\newPEuler.exe",
+            "cwd": "${workspaceFolder}\\newPEuler",
+            "console": "externalTerminal",
+            "preLaunchTask": "Build Release"
+        }
+    ]
+}

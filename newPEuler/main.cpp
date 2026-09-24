@@ -37,6 +37,7 @@ int main() {
 		case 23: answers::Q23(); break;
 		case 24: answers::Q24(); break;
 		case 25: answers::Q25(); break;
+		case 26: answers::Q26(); break;
 		case -1: {
 			int test_num, num_of_tests;
 			bool stop_test = false;
@@ -190,7 +191,18 @@ int main() {
 					Utils::Benchmarker::MeasureAndPrint("Q24", answers_for_testing::Q24, num_of_tests);
 					break;
 				}
-
+				case 25: {
+					cout << "enter amount of tests: ";
+					cin >> num_of_tests;
+					Utils::Benchmarker::MeasureAndPrint("Q25", answers_for_testing::Q25, num_of_tests);
+					break;
+				}
+				case 26: {
+					cout << "enter amount of tests: ";
+					cin >> num_of_tests;
+					Utils::Benchmarker::MeasureAndPrint("Q26", answers_for_testing::Q26, num_of_tests);
+					break;
+				}
 				default:
 				{
 					cout << "not a question with test\n";

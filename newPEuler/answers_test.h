@@ -654,4 +654,41 @@ namespace answers_for_testing {
 		}
 		return ans_int;
 	}
+	long long  int Q25(){
+		long long int num_of_digs = 1000, place = 2;
+		std::string save_num = "1", cur_num = "1";
+		while (cur_num.size() < num_of_digs) {
+			std::string next_num = "0" + cur_num;
+			int save_num_index = save_num.size() - 1;
+			int next_num_index = next_num.size() - 1;
+			while (save_num_index >= 0) {
+				int add = save_num[save_num_index] - '0';
+				next_num[next_num_index] += add;
+				helpers::fix_string(next_num, next_num_index);
+				next_num_index--;
+				save_num_index--;
+			}
+			if (next_num[0] == '0') {
+				next_num.erase(0, 1);
+			}
+			save_num = cur_num;
+			cur_num = next_num;
+			place++;
+		}
+		return place;
+	}
+	long long int Q26() {
+		int d = 1000, max_length = 0, max_num;
+		std::vector<unsigned long long int> primes = helpers::sieve_P(d);
+		for(int i = 0; i < primes.size(); ++i) {
+			int cur_num = primes[i];
+			int length = helpers::recurring_cycle_length(cur_num);
+			if (length > max_length) {
+				max_length = length;
+				max_num = cur_num;
+			}
+		}
+		return max_num;
+	}
 }
+	

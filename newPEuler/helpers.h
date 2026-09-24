@@ -7,6 +7,7 @@
 #include <iostream>
 #include <algorithm>
 #include <fstream>
+#include <cmath>
 namespace helpers {
 	int GCD(int num1, int num2);
 	bool is_prime(const unsigned long long int num);
@@ -27,4 +28,7 @@ namespace helpers {
 	long long int factorial(const int n);
 	long long int triangle_maximum_sum(int* triangle, int n, int h);
 	long long int sum_n(const int& n);//sum of all the numbers until n(including)
+	unsigned long long int num_of_digs(long long int num);
+	unsigned long long int round_down(int num, int round_to);
+	unsigned long long int recurring_cycle_length(int num);
 }

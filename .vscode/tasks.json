@@ -1,0 +1,30 @@
+{
+    // Builds ALL .cpp files in newPEuler/ together with MSVC (the same compiler Visual Studio uses),
+    // so the headers and the other .cpp files get linked. Ctrl+Shift+B runs the default (Release) build.
+    "version": "2.0.0",
+    "options": {
+        "cwd": "${workspaceFolder}\\newPEuler",
+        "shell": {
+            "executable": "cmd.exe",
+            "args": ["/d", "/c"]
+        }
+    },
+    "tasks": [
+        {
+            "label": "Build Release",
+            "type": "shell",
+            "command": "call \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd.bat\" -arch=x64 -host_arch=x64 -no_logo && (if not exist bin\\Release mkdir bin\\Release) && cl /nologo /FC /std:c++20 /EHsc /W3 /O2 /DNDEBUG /D_CONSOLE *.cpp /Fobin\\Release\\ /Febin\\Release\\newPEuler.exe",
+            "problemMatcher": ["$msCompile"],
+            "group": { "kind": "build", "isDefault": true },
+            "presentation": { "reveal": "always", "clear": true }
+        },
+        {
+            "label": "Build Debug",
+            "type": "shell",
+            "command": "call \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd.bat\" -arch=x64 -host_arch=x64 -no_logo && (if not exist bin\\Debug mkdir bin\\Debug) && cl /nologo /FC /std:c++20 /EHsc /W3 /Zi /Od /MDd /D_DEBUG /D_CONSOLE *.cpp /Fobin\\Debug\\ /Fdbin\\Debug\\ /Febin\\Debug\\newPEuler.exe",
+            "problemMatcher": ["$msCompile"],
+            "group": "build",
+            "presentation": { "reveal": "always", "clear": true }
+        }
+    ]
+}

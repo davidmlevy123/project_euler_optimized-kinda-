@@ -1,0 +1,17 @@
+{
+    // Auto-format the line when you type ; or } (and on Enter), like Visual Studio does.
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools",
+        "editor.formatOnType": true,
+        "editor.insertSpaces": false,
+        "editor.tabSize": 4
+    },
+    // Use Visual Studio's own formatting rules instead of clang-format.
+    "C_Cpp.formatting": "vcFormat",
+    // Use c_cpp_properties.json for IntelliSense (stops CMake Tools from taking over).
+    "C_Cpp.default.configurationProvider": "",
+    "cmake.ignoreCMakeListsMissing": true,
+    "files.associations": {
+        "*.h": "cpp"
+    }
+}

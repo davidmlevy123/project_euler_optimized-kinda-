@@ -27,7 +27,7 @@ namespace answers {
 		sumSmall = (NSmall * (smallerNum + NSmall * smallerNum)) / 2;//we find the sums using invoice series sum
 		sumBig = (NBig * (biggerNum + NBig * biggerNum)) / 2;
 		numsGCD = helpers::GCD(num1, num2);//we find the GDC so we can find the part where teh numbers overlap(the smallest number that divids by both num1 and num2)
-		NSame = (maxNum - 1) / ((num1*num2)/numsGCD);//we find the amount of overlaps there are
+		NSame = (maxNum - 1) / ((num1 * num2) / numsGCD);//we find the amount of overlaps there are
 		sumSame = (NSame * (((num1 * num2) / numsGCD) + NSame * (((num1 * num2) / numsGCD)))) / 2;//we calculate the sum of the overlap using invoice series sum
 		auto stop = std::chrono::high_resolution_clock::now();
 		cout << "the sum of all the sums up until " << maxNum << " is: " << sumBig + sumSmall - sumSame << endl;
@@ -88,7 +88,7 @@ namespace answers {
 			while (num % primes[curPrime] == 0 && num != 0 && primes[curPrime] != 0) {
 				num /= primes[curPrime];
 				pFactors[primes[curPrime]] = pFactors[primes[curPrime]] + 1;
-				max = primes[curPrime]; 
+				max = primes[curPrime];
 			}
 			curPrime += 1;
 		}
@@ -167,27 +167,27 @@ namespace answers {
 		cout << "-------------------------------------------------------------------------------------------------\n";
 	}
 	void Q6() {
-	int sum_of_squares, sum_nums, sum_squared, max_num_squared, max_num_squares;
-	cout << "enter the number to get the sum of squares until: ";
-	cin >> max_num_squares;
-	cout << "enter the number to get the sum squared until: ";
-	cin >> max_num_squared;
-	auto start = std::chrono::high_resolution_clock::now();
-	sum_of_squares = ((max_num_squares) * (max_num_squares + 1) * (2 * max_num_squares + 1)) / 6;
-	sum_nums = ((max_num_squared) * (max_num_squared + 1)) / 2;
-	sum_squared = sum_nums * sum_nums;
-	auto stop = std::chrono::high_resolution_clock::now();
-	cout << "the of the sum of squares until " << max_num_squares << " is: " << sum_of_squares << endl;
-	cout << "the sum of all the numbers until " << max_num_squared << " squared is: " << sum_squared << endl;
-	cout << "the difference is: " << sum_squared - sum_of_squares << endl;
-	cout << "-------------------------------------------------------------------------------------------------\n";
-	auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
-	auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-	auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
-	cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
-	cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
-	cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
-	cout << "-------------------------------------------------------------------------------------------------\n";
+		int sum_of_squares, sum_nums, sum_squared, max_num_squared, max_num_squares;
+		cout << "enter the number to get the sum of squares until: ";
+		cin >> max_num_squares;
+		cout << "enter the number to get the sum squared until: ";
+		cin >> max_num_squared;
+		auto start = std::chrono::high_resolution_clock::now();
+		sum_of_squares = ((max_num_squares) * (max_num_squares + 1) * (2 * max_num_squares + 1)) / 6;
+		sum_nums = ((max_num_squared) * (max_num_squared + 1)) / 2;
+		sum_squared = sum_nums * sum_nums;
+		auto stop = std::chrono::high_resolution_clock::now();
+		cout << "the of the sum of squares until " << max_num_squares << " is: " << sum_of_squares << endl;
+		cout << "the sum of all the numbers until " << max_num_squared << " squared is: " << sum_squared << endl;
+		cout << "the difference is: " << sum_squared - sum_of_squares << endl;
+		cout << "-------------------------------------------------------------------------------------------------\n";
+		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
+		cout << "-------------------------------------------------------------------------------------------------\n";
 	}
 	void Q7() {
 		long long int prime_num, n;
@@ -502,7 +502,7 @@ namespace answers {
 		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
 		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "-------------------------------------------------------------------------------------------------\n";
-	
+
 	}
 	void Q15() {
 		int n, m, x1, x2, y1, y2;
@@ -526,7 +526,7 @@ namespace answers {
 		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
 		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "-------------------------------------------------------------------------------------------------\n";
-	
+
 	}
 	void Q16() {
 		int base, exponent, sum_of_digs = 0;
@@ -633,7 +633,7 @@ namespace answers {
 	void Q19() {
 		int end_date_day, end_date_year, month_num, day_of_weak = 0, count = 0, month_num_days;
 		std::string month;
-		int month_lengths[] = { 0,31,-1,31,30,31,30,31,31,30,31,30,31 };	
+		int month_lengths[] = { 0,31,-1,31,30,31,30,31,31,30,31,30,31 };
 		cout << "enter the date you want to know how many sundays fell on the first day of the month: ";
 		cin >> end_date_day >> month >> end_date_year;
 		auto start = std::chrono::high_resolution_clock::now();
@@ -773,7 +773,7 @@ namespace answers {
 			cur_name = names[i];
 			int cur_name_ASCII = 0;
 			for (int j = 0; j < cur_name.size(); ++j) {
-				cur_name_ASCII = cur_name_ASCII + cur_name[j] - 'A'+1;
+				cur_name_ASCII = cur_name_ASCII + cur_name[j] - 'A' + 1;
 			}
 			sum_of_scores = sum_of_scores + cur_name_ASCII * (i + 1);
 		}
@@ -913,6 +913,31 @@ namespace answers {
 		}
 		auto stop = std::chrono::high_resolution_clock::now();
 		cout << "the first fib number with " << num_of_digs << " digits is the " << place << " fib number\n";
+		cout << endl << "-------------------------------------------------------------------------------------------------\n";
+		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
+		cout << "-------------------------------------------------------------------------------------------------\n";
+	}
+	void Q26() {
+		int d, max_length = 0, max_num;
+		cout << "enter the max d to find the longest recurring cycle: ";
+		cin >> d;
+		auto start = std::chrono::high_resolution_clock::now();
+		std::vector<unsigned long long int> primes = helpers::sieve_P(d);
+		for(int i = 0; i < primes.size(); ++i) {
+			int cur_num = primes[i];
+			int length = helpers::recurring_cycle_length(cur_num);
+			if (length > max_length) {
+				max_length = length;
+				max_num = cur_num;
+			}
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+		cout << "the number with the longest recurring cycle is: " << max_num << " with a cycle length of: " << max_length << endl;
 		cout << endl << "-------------------------------------------------------------------------------------------------\n";
 		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
 		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);

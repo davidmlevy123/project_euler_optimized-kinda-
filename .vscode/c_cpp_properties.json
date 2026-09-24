@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "MSVC",
+            "includePath": [
+                "${workspaceFolder}/newPEuler",
+                "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/include",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/ucrt",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/um",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/shared"
+            ],
+            "defines": ["_CONSOLE", "_DEBUG"],
+            "compilerPath": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe",
+            "windowsSdkVersion": "10.0.26100.0",
+            "cStandard": "c17",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "windows-msvc-x64"
+        }
+    ],
+    "version": 4
+}

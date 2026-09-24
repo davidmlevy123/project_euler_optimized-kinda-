@@ -238,4 +238,33 @@ namespace helpers {
 		}
 		return triangle_maximum_sum(triangle, n - h, h - 1);
 	}
+	unsigned long long int num_of_digs(long long int num) {
+		int cur_num_of_digs = 0;
+		while (num > 0) {
+			cur_num_of_digs++;
+			num /= 10;
+		}
+		return cur_num_of_digs;
+	}
+	unsigned long long int round_down(int num, int round_to) {
+		num /= round_to;
+		num *= round_to;
+		return num;
+	}
+	unsigned long long int recurring_cycle_length(int num) {
+		int remainder = 1, cur_length = 0;
+		std::vector<int> remainder_found(num, 0); // We set the base values to num so whenever we find a remainder with that number(has to be between 0 and num-1 so only num spots) we switch its value marking that it was used.
+		while (true) {
+			remainder = (remainder * 10) % num;
+			cur_length++;
+			if (remainder == 0) {
+				return 0;
+			}
+			if (remainder_found[remainder] != 0) { // If this remainder was found before we return the length of the cycle until now minus the extra spots. If the remainder is equal that mean we got to the same spot in the cycle meaning we already did a full cycle.
+				return cur_length - remainder_found[remainder];
+			}
+			remainder_found[remainder] = cur_length;
+		}
+		return cur_length;
+	}
 }
