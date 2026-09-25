@@ -947,4 +947,60 @@ namespace answers {
 		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "-------------------------------------------------------------------------------------------------\n";
 	}
+	void Q27() {
+		int a, b, max_num_of_primes = 0, a_times_b_for_max = 0, best_a = 0, best_b = 0;
+		cout << "enter the range of a and b to find the quadratic formula that produces the most primes: ";
+		cin >> a >> b;
+		auto start = std::chrono::high_resolution_clock::now();
+		if (helpers::is_even(a)) {//if a is even we only want the odds so we remove 1 from it becasue a is max.
+			a--;
+		}
+		int min = -a;
+		std::vector<bool> primes = helpers::sieveB(b);// We only need to go up to be because we want all possible values of b to be prime(b has to be prime for it to work for 0 which is the start), and the maximum value of b is b.
+		for (std::vector<bool>::iterator cur_prime = primes.begin(); cur_prime != primes.end(); ++cur_prime) {
+			if (*cur_prime == true)
+			{
+				for (int j = min; j <= a; j += 2) {// the a has to be odd for the formula to work for 0, and the maximum value of a is a.
+					int i = 1;// b is prime so when n=0 we for sure have a prime.
+					int cur_index = cur_prime - primes.begin();
+					while (true) {
+						long long int cur_num = helpers::quadratic_formula(1, j, cur_index, i);
+						bool is_prime = false;
+						if (cur_num < 2) {//if the number is 0,1(not prime) or negative(not prime) we break the loop
+							is_prime = false;
+						}
+						else if(cur_num < primes.size()) {//if the number is smaller than the size of the sieve we can check if its prime by checking the sieve
+							is_prime = primes[cur_num];
+						}
+						else {//if the number is bigger than the size of the sieve we check if its prime by checking if it has any divisors
+							is_prime = helpers::is_prime(cur_num);
+						}
+						if (is_prime) {
+							++i;
+						}
+						else {
+							if (i > max_num_of_primes) {
+								max_num_of_primes = i;
+								best_a = j;
+								best_b = cur_index;
+								a_times_b_for_max = best_a * best_b;
+							}
+							break;
+						}
+					}
+						
+				}
+			}
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+		cout << "The maximum number of primes produced is: " << max_num_of_primes << " with a:" << best_a << " and b:" << best_b << " that have a product of: " << a_times_b_for_max << endl;
+		cout << endl << "-------------------------------------------------------------------------------------------------\n";
+		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
+		cout << "-------------------------------------------------------------------------------------------------\n";
+	}
 }

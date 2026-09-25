@@ -29,4 +29,5 @@ namespace answers {
 	void Q24();//finds the n'th permutation of an alphabet.
 	void Q25();//finds the first fib number with n digits.
 	void Q26();//finds the fraction until 1/d that repeats the most digits.
+	void Q27();//finds the quadratic formula that produces the most primes.
 }

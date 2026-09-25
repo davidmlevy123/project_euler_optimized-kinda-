@@ -8,6 +8,9 @@ namespace helpers {
 		}
 		return num2;
 	}
+	bool is_even(int num) {
+		return (num & 1) == 0;
+	}
 	bool is_prime(const unsigned long long int num) {
 		if (num == 2 || num == 3) {
 			return true;
@@ -266,5 +269,8 @@ namespace helpers {
 			remainder_found[remainder] = cur_length;
 		}
 		return cur_length;
+	}
+	long long int quadratic_formula(const int a, const int b, const int c, const int n) {
+		return ((a * n * n) + (b * n) + c);
 	}
 }

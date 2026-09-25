@@ -10,6 +10,7 @@
 #include <cmath>
 namespace helpers {
 	int GCD(int num1, int num2);
+	bool is_even(int num);
 	bool is_prime(const unsigned long long int num);
 	std::vector<bool> sieveB(const unsigned long long int max);
 	std::vector<unsigned long long int> sieve_P(const unsigned long long int max);
@@ -31,4 +32,5 @@ namespace helpers {
 	unsigned long long int num_of_digs(long long int num);
 	unsigned long long int round_down(int num, int round_to);
 	unsigned long long int recurring_cycle_length(int num);
+	long long int quadratic_formula(const int a, const int b, const int c, const int n);
 }
