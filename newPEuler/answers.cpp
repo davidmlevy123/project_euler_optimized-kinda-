@@ -964,9 +964,9 @@ namespace answers {
 					int i = 1;// b is prime so when n=0 we for sure have a prime.
 					int cur_index = cur_prime - primes.begin();
 					while (true) {
-						long long int cur_num = helpers::quadratic_formula(1, j, cur_index, i);
+						long long int cur_num = helpers::quadratic_formula(1, j, cur_index, i);// Can be made more efficent by using the last number and adding the difference between the last number and the current number to get the next number instead of calculating it from scratch every time.
 						bool is_prime = false;
-						if (cur_num < 2) {//if the number is 0,1(not prime) or negative(not prime) we break the loop
+						if (cur_num < 2) {// If the number is 0,1(not prime) or negative(not prime) we break the loop
 							is_prime = false;
 						}
 						else if(cur_num < primes.size()) {//if the number is smaller than the size of the sieve we can check if its prime by checking the sieve
@@ -1000,6 +1000,24 @@ namespace answers {
 		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
 		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
 		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
+		cout << "-------------------------------------------------------------------------------------------------\n";
+	}
+	void Q28() {
+		int n;
+		cout<<"What is the diagonal size? (has to be odd): ";
+		cin >> n;
+		auto start = std::chrono::high_resolution_clock::now();
+		n = (n - 1) / 2;// the amount of rings is (n-1)/2 because each ring goes around twice so we divide by 2 we removed 1 becasue we ignore the middle which only goes once(one number).
+		long long int sum = (16 * n * n * n + 30 * n * n + 26 * n) / 3 + 1;// furmula found using finite seires 
+		auto stop = std::chrono::high_resolution_clock::now();
+		cout << "the sum of the diagonals is: " << sum << endl;
+		cout << endl << "-------------------------------------------------------------------------------------------------\n";
+		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop -	 start);
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() <<	 " milliseconds" << std::endl;
 		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "-------------------------------------------------------------------------------------------------\n";
 	}

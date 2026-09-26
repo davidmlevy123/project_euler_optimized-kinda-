@@ -729,5 +729,11 @@ namespace answers_for_testing {
 		}
 		return a_times_b_for_max;
 	}
+	long long int Q28() {
+		int n = 1001;
+		n = (n - 1) / 2;// the amount of rings is (n-1)/2 because each ring goes around twice so we divide by 2 we removed 1 becasue we ignore the middle which only goes once(one number).
+		long long int sum = (16 * n * n * n + 30 * n * n + 26 * n) / 3 + 1;// furmula found using finite seires 
+		return sum;
+	}
 }
 	
