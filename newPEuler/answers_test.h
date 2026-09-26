@@ -735,5 +735,30 @@ namespace answers_for_testing {
 		long long int sum = (16 * n * n * n + 30 * n * n + 26 * n) / 3 + 1;// furmula found using finite seires 
 		return sum;
 	}
+	long long int Q30() {
+		int n = 5, sum_of_nums = 0;
+		vector<int> powers(10, 0);
+		for (int i = 0; i < 10; ++i) {
+			powers[i] = round(pow(i, n));// we use round because sometimes power return a number that is just under the value (i.e. 6^2=35.9999) which would be 35 i not rounded.
+		}
+		int max_num = (n + 1) * pow(9, n);// The max num is all 9s.
+		int min_num = 2;// we dont include 1.
+		for (int i = min_num; i <= max_num; ++i) {
+			int cur_num = i;
+			int cur_sum_of_digs = 0;
+			while (cur_num > 0) {
+			int cur_dig = cur_num % 10;
+				cur_sum_of_digs += powers[cur_dig];
+				if(cur_sum_of_digs > i) {
+					break;
+				}
+				cur_num /= 10;
+			}
+			if(cur_sum_of_digs == i) {
+				sum_of_nums += i;
+			}
+		}
+		return sum_of_nums;
+	}
 }
 	

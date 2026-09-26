@@ -30,5 +30,6 @@ namespace answers {
 	void Q25();//finds the first fib number with n digits.
 	void Q26();//finds the fraction until 1/d that repeats the most digits.
 	void Q27();//finds the quadratic formula that produces the most primes.
-	void Q28();//finds the sum of the diagonals in a nxn square..
+	void Q28();//finds the sum of the diagonals in a nxn square.
+	void Q30();//finds the sum of all nums that are writen as the n'th power of their digits.
 }

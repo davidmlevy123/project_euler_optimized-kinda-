@@ -1021,4 +1021,42 @@ namespace answers {
 		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "-------------------------------------------------------------------------------------------------\n";
 	}
+	void Q30() {
+		int n;
+		int sum_of_nums = 0;
+		std::vector<int> powers(10, 0);// precalculate the powers of the digs to save time.
+		cout << "enter the nth power: ";
+		cin >> n;
+		auto start = std::chrono::high_resolution_clock::now();
+		for (int i = 0; i < 10; ++i) {
+			powers[i] = round(pow(i, n));// we use round because sometimes power return a number that is just under the value (i.e. 6^2=35.9999) which would be 35 i not rounded.
+		}
+		int max_num = (n + 1) * pow(9, n);// The max num is all 9s.
+		int min_num = 2;// we dont include 1.
+		for (int i = min_num; i <= max_num; ++i) {
+			int cur_num = i;
+			int cur_sum_of_digs = 0;
+			while (cur_num > 0) {
+			int cur_dig = cur_num % 10;
+				cur_sum_of_digs += powers[cur_dig];
+				if(cur_sum_of_digs > i) {
+					break;
+				}
+				cur_num /= 10;
+			}
+			if(cur_sum_of_digs == i) {
+				sum_of_nums += i;
+			}
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+		cout << "the sum of all the numbers that can be written as a sum of " << n << "th powers is: " << sum_of_nums << endl;
+		cout << endl << "-------------------------------------------------------------------------------------------------\n";
+		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() << " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
+		cout << "-------------------------------------------------------------------------------------------------\n";
+	}
 }
