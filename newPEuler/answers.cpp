@@ -1021,6 +1021,52 @@ namespace answers {
 		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
 		cout << "-------------------------------------------------------------------------------------------------\n";
 	}
+	void Q29() {
+		int min, max;
+		cout << "enter range for a and b: ";
+		cin >> min >> max;
+		auto start = std::chrono::high_resolution_clock::now();
+		int max_b = helpers::logn(max, 2);
+		std::vector<int> family_count(max_b + 1, 0);
+		for (int b = 1; b < max_b + 1; ++b) {
+			std::vector<char> found(b * max + 1, 0);
+			int unique_exponents = 0;
+			for (int i = 1; i < b + 1; ++i) {
+				for (int j = min; j < max + 1; ++j) {
+					int exp = i * j;
+					if (!found[exp]) {
+						found[exp] = 1;
+						unique_exponents++;
+					}
+				}
+			}
+			family_count[b] = unique_exponents;// We put in the length of the family.
+		}
+		std::vector<char> seen(max + 1, false);
+		long long int total_unique_pointers = 0;
+		for (int i = min; i < max + 1; ++i) {
+			if (!seen[i]) {
+				int b = 0;
+				long long int power_val = i;
+				while (power_val <= max) {
+					seen[power_val] = true;
+					b++;
+					power_val *= i;
+				}
+				total_unique_pointers += family_count[b];
+			}
+		}
+		auto stop = std::chrono::high_resolution_clock::now();
+		cout << "the number of unique powers is: " << total_unique_pointers << endl;
+		cout << endl << "-------------------------------------------------------------------------------------------------\n";
+		auto duration_micro = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+		auto duration_mil = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		auto duration_sec = std::chrono::duration_cast<std::chrono::seconds>(stop -	 start);
+		cout << "Time taken: " << (long double)duration_micro.count() << " microseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_mil.count() <<	 " milliseconds" << std::endl;
+		cout << "Time taken: " << (long double)duration_sec.count() << " seconds" << std::endl;
+		cout << "-------------------------------------------------------------------------------------------------\n";
+	}
 	void Q30() {
 		int n;
 		int sum_of_nums = 0;

@@ -8,6 +8,8 @@
 #include <algorithm>
 #include <fstream>
 #include <cmath>
+#include <set>
+#include <unordered_set>
 namespace helpers {
 	int GCD(int num1, int num2);
 	bool is_even(int num);
@@ -33,4 +35,5 @@ namespace helpers {
 	unsigned long long int round_down(int num, int round_to);
 	unsigned long long int recurring_cycle_length(int num);
 	long long int quadratic_formula(const int a, const int b, const int c, const int n);
+	int logn(int num, int base);
 }

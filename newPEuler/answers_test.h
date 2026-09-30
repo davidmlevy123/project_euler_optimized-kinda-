@@ -654,7 +654,7 @@ namespace answers_for_testing {
 		}
 		return ans_int;
 	}
-	long long  int Q25(){
+	long long int Q25() {
 		long long int num_of_digs = 1000, place = 2;
 		std::string save_num = "1", cur_num = "1";
 		while (cur_num.size() < num_of_digs) {
@@ -734,6 +734,40 @@ namespace answers_for_testing {
 		n = (n - 1) / 2;// the amount of rings is (n-1)/2 because each ring goes around twice so we divide by 2 we removed 1 becasue we ignore the middle which only goes once(one number).
 		long long int sum = (16 * n * n * n + 30 * n * n + 26 * n) / 3 + 1;// furmula found using finite seires 
 		return sum;
+	}
+	long long int Q29() {
+		int min = 2, max = 100;
+		int max_b = helpers::logn(max, 2);
+		std::vector<int> family_count(max_b + 1, 0);
+		for (int b = 1; b < max_b + 1; ++b) {
+			std::vector<char> found(b * max + 1, 0);
+			int unique_exponents = 0;
+			for (int i = 1; i < b + 1; ++i) {
+				for (int j = min; j < max + 1; ++j) {
+					int exp = i * j;
+					if (!found[exp]) {
+						found[exp] = 1;
+						unique_exponents++;
+					}
+				}
+			}
+			family_count[b] = unique_exponents;
+		}
+		std::vector<char> seen(max + 1, false);
+		long long int total_unique_pointers = 0;
+		for (int i = min; i < max + 1; ++i) {
+			if (!seen[i]) {
+				int b = 0;
+				long long int power_val = i;
+				while (power_val <= max) {
+					seen[power_val] = true;
+					b++;
+					power_val *= i;
+				}
+				total_unique_pointers += family_count[b];
+			}
+		}
+		return total_unique_pointers;
 	}
 	long long int Q30() {
 		int n = 5, sum_of_nums = 0;

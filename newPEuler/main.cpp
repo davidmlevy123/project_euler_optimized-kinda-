@@ -40,6 +40,7 @@ int main() {
 		case 26: answers::Q26(); break;
 		case 27: answers::Q27(); break;
 		case 28: answers::Q28(); break;
+		case 29: answers::Q29(); break;
 		case 30: answers::Q30(); break;
 		case -1: {
 			int test_num, num_of_tests;
@@ -216,6 +217,12 @@ int main() {
 					cout << "enter amount of tests: ";
 					cin >> num_of_tests;
 					Utils::Benchmarker::MeasureAndPrint("Q28", answers_for_testing::Q28, num_of_tests);
+					break;
+				}
+				case 29: {
+					cout << "enter amount of tests: ";
+					cin >> num_of_tests;
+					Utils::Benchmarker::MeasureAndPrint("Q29", answers_for_testing::Q29, num_of_tests);
 					break;
 				}
 				case 30: {

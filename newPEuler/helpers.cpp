@@ -273,4 +273,12 @@ namespace helpers {
 	long long int quadratic_formula(const int a, const int b, const int c, const int n) {
 		return ((a * n * n) + (b * n) + c);
 	}
+	int logn(int num, int base) {
+			int temp = 2, ans = 0;
+		while (temp < num) {
+			ans++;
+			num /= base;
+		}
+		return ans;
+	}
 }
