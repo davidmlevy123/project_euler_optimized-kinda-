@@ -281,4 +281,49 @@ namespace helpers {
 		}
 		return ans;
 	}
+	uint64_t my_power(int base, int power) {
+		uint64_t ans = 1;
+		for (int i = 0; i < power; ++i) {
+			ans *= base;
+		}
+		return ans;
+	}
+	long long int count_combos(int x, const int* coins, int num_of_coins) {
+		if (x == 0) {
+			return 1;
+		}
+		if (x < 0 || num_of_coins <= 0) {// Bad path.
+			return 0;
+		}
+		return count_combos(x, coins, num_of_coins - 1) + count_combos(x - coins[num_of_coins - 1], coins, num_of_coins);
+	}
+	long long int number_of_ways_to_oder_alphabet(const std::vector<int>& digits, const int num_of_digs) {
+		uint64_t sum = 1;
+		for (int i = digits.size() - num_of_digs; i < digits.size(); ++i) {
+    		sum *= digits[i]; 
+		}
+		return sum;
+	}
+	bool has_digit(uint64_t num, const int digit) {
+		while (num > 0) {
+			if(num %10 == digit) {
+				return true;
+			}
+			num /= 10;
+		}
+		return false;
+	}
+	bool has_all_digits(const int num1, const int num2, const uint64_t ans, const int n) {
+		for (int i = 0; i < n; ++i) {
+			// If we didnt find one of the digits its false.
+			if (!has_digit(num1, i + 1) && !has_digit(num2, i + 1) && !has_digit(ans, i + 1)) {
+				return false;
+			}
+		}
+	
+		return true;
+	}
+	bool is_pandigital(const int num1, const int num2, const uint64_t ans, const int n) {
+		return has_all_digits(num1, num2, ans, n);
+	}
 }

@@ -794,5 +794,45 @@ namespace answers_for_testing {
 		}
 		return sum_of_nums;
 	}
+	long long int Q31() {
+		int x = 2, num_of_combos = 0;
+		const int coins[8] = { 1, 2, 5, 10, 20, 50, 100, 200 };
+		x = x * 100; // Switch x to pence.
+		long long int ans = helpers::count_combos(x, coins, 8);
+		return ans;
+	}
+	long long int Q32() {
+		int n = 9;
+		uint64_t sum_of_pandigital_products = 0;
+		std::unordered_set<uint64_t> unique_products; // hash maps with all the unique products, we use it to avoid counting multiple times.
+		int ciel = (n + 1) / 2; 
+		int floor = n / 2;
+		uint64_t max_product = helpers::my_power(10, floor) - 1; // the max product is the max number with floor digits.
+		for (int d1 = 1; d1 <= ciel / 2; ++d1) {
+			int d2 = ciel - d1;
+
+			// we calculate the min and max multiplicand and multiplier based on the number of digits. We do it once to save time.
+			uint64_t max_multiplicand = helpers::my_power(10, d1) - 1; // the max multiplicand is the max number with d1 digits.
+			uint64_t min_multiplicand = helpers::my_power(10, d1 - 1); // the min multiplicand is the min number with d1 digits.
+			uint64_t max_multiplier = helpers::my_power(10, d2) - 1; // the max multiplier is the max number with d2 digits.
+			uint64_t min_multiplier = helpers::my_power(10, d2 - 1); // the min multiplier is the min number with d2 digits.
+			
+			for (int i = min_multiplicand; i <= max_multiplicand; ++i) {
+				for (int j = min_multiplier; j <= max_multiplier; ++j) {
+					uint64_t product = i * j;
+					if (product > max_product) {
+						break; // if the product is bigger than the max product we break because all the other products will be bigger.
+					}
+					if (helpers::is_pandigital(i,j, product, n)) {
+						unique_products.insert(product);// add it if it is a pandigital product.
+					}
+				}
+			}
+		}
+		for(const auto& product : unique_products) {
+			sum_of_pandigital_products += product;
+		}
+		return sum_of_pandigital_products;
+	}
 }
 	

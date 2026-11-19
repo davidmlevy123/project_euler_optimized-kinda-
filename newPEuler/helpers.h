@@ -36,4 +36,10 @@ namespace helpers {
 	unsigned long long int recurring_cycle_length(int num);
 	long long int quadratic_formula(const int a, const int b, const int c, const int n);
 	int logn(int num, int base);
+	uint64_t my_power(int base, int power);
+	long long int count_combos(int x, const int* coins, int num_of_coins);
+	long long int number_of_ways_to_oder_alphabet(const std::vector<int>& digits, const int num_of_digs);
+	bool has_digit(uint64_t num, const int digit);
+	bool has_all_digits(const int num1, const int num2, const uint64_t ans, const int n);
+	bool is_pandigital(const int num1, const int num2, const uint64_t ans, const int n);
 }

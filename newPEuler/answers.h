@@ -33,4 +33,6 @@ namespace answers {
 	void Q28();//finds the sum of the diagonals in a nxn square.
 	void Q29();//finds the number of distinct powers of a^b for 2<=a<=x and 2<=b<=y.
 	void Q30();//finds the sum of all nums that are writen as the n'th power of their digits.
+	void Q31();//finds all the ways to make x pounds. (using 1p, 2p, 5p, 10p, 20p, 50p, £1 (100p), and £2 (200p)).
+	void Q32();//finds the sum of products that its multiplicand multiplier and it make have all the numbers 1-n once.
 }

@@ -42,6 +42,8 @@ int main() {
 		case 28: answers::Q28(); break;
 		case 29: answers::Q29(); break;
 		case 30: answers::Q30(); break;
+		case 31: answers::Q31(); break;
+		case 32: answers::Q32(); break;
 		case -1: {
 			int test_num, num_of_tests;
 			bool stop_test = false;
@@ -229,6 +231,18 @@ int main() {
 					cout << "enter amount of tests: ";
 					cin >> num_of_tests;
 					Utils::Benchmarker::MeasureAndPrint("Q30", answers_for_testing::Q30, num_of_tests);
+					break;
+				}
+				case 31: {
+					cout << "enter amount of tests: ";
+					cin >> num_of_tests;
+					Utils::Benchmarker::MeasureAndPrint("Q31", answers_for_testing::Q31, num_of_tests);
+					break;
+				}
+				case 32: {
+					cout << "enter amount of tests: ";
+					cin >> num_of_tests;
+					Utils::Benchmarker::MeasureAndPrint("Q32", answers_for_testing::Q32, num_of_tests);
 					break;
 				}
 				default:
